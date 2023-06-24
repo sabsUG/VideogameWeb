@@ -6,67 +6,137 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
     <head th:fragment="head">
-        <title>TechShop</title>
+        <title>Video Games Company</title>
         <meta charset="UTF-8"/>
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
         <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>        
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>  
+        <link rel="stylesheet" href="plantilla.css"/>
+        <style>
+            #main{
+                height: 75px;
+            }
+            
+            #logo{
+                margin-left: 20px;
+            }
+            .navbar{
+                display:flex;
+                justify-content:space-between;
+                
+            }
+            .navbar-nav > li {
+                
+            }
+            .navbar-nav > li > button{
+                
+                background-color: #4A9DFF;
+                border: none;
+            }
+            .navbar-nav > li > a {
+                
+                color: black;
+            }
+            .navbar .nav-item .dropdown-menu{
+                display: none;
+               
+            }
+            .navbar .nav-item:hover .nav-link{
+                border-bottom: 2px solid #F8A829;
+            }
+            .navbar .nav-item:hover .dropdown-menu{
+                display: block;
+            }
+            .navbar .nav-item .dropdown-menu{
+                margin-top:0;
+                
+            }
+            #hello{
+                margin-right: 30px;
+                color: #4A9DFF;
+            }
+            svg{
+               
+               color: #4A9DFF;
+            }
+        </style>
     </head>
     <body>
 
         <header th:fragment="header" class="header"> 
-            <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0"> 
-                <div class="container"> 
-                    <a th:href="@{/}" class="navbar-brand">
-                        [[#{aplicacion.titulo}]]
-                    </a> 
-                    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"> 
-                        <span class="navbar-toggler-icon"></span> 
-                    </button> 
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <ul class="navbar-nav"> 
-                            <li class="nav-item px-2">
-                                <a class="nav-menu-link nav-link" th:href="@{/categoria/listado}">
-                                    [[#{plantilla.categorias}]]
-                                </a>
-                            </li> 
-                            <li class="nav-item px-2">
-                                <a class="nav-menu-link nav-link" th:href="@{/producto/listado}">
-                                    [[#{plantilla.productos}]]
-                                </a>
-                            </li> 
-                            <li class="nav-item px-2">
-                                <a class="nav-menu-link nav-link" th:href="@{/usuario/listado}">
-                                    [[#{plantilla.usuarios}]]
-                                </a>
-                            </li> 
-                        </ul> 
-                        <div class="col-md-3"> 
-                            <ul class="navbar-nav"> 
-                                <li class="nav-item px-2">
-                                    <a class="nav-link" th:href="@{/(lang=es)}">ES</a>
-                                </li> 
-                                <li class="nav-item px-2">
-                                    <a class="nav-link" th:href="@{/(lang=en)}">EN</a>
-                                </li> 
-                            </ul> 
-                        </div> 
-                    </div> 
-                </div> 
-            </nav> 
-            <section id="main-header" class="py-2 bg-success text-white"> 
-                <div class="container"> <div class="row"> 
-                        <div class="col-md-6"> 
-                            <h1>
-                                <i class="fas fa-cog"></i> 
-                                [[#{plantilla.suTienda}]]
-                            </h1>
-                        </div> 
-                    </div> 
-                </div> 
-            </section> 
+            <nav class="navbar navbar-expand-lg navbar-light bg-white " id="main">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-controller" viewBox="0 0 16 16" id="logo">
+                    <path d="M11.5 6.027a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2.5-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-1.5 1.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm-6.5-3h1v1h1v1h-1v1h-1v-1h-1v-1h1v-1z"/>
+                    <path d="M3.051 3.26a.5.5 0 0 1 .354-.613l1.932-.518a.5.5 0 0 1 .62.39c.655-.079 1.35-.117 2.043-.117.72 0 1.443.041 2.12.126a.5.5 0 0 1 .622-.399l1.932.518a.5.5 0 0 1 .306.729c.14.09.266.19.373.297.408.408.78 1.05 1.095 1.772.32.733.599 1.591.805 2.466.206.875.34 1.78.364 2.606.024.816-.059 1.602-.328 2.21a1.42 1.42 0 0 1-1.445.83c-.636-.067-1.115-.394-1.513-.773-.245-.232-.496-.526-.739-.808-.126-.148-.25-.292-.368-.423-.728-.804-1.597-1.527-3.224-1.527-1.627 0-2.496.723-3.224 1.527-.119.131-.242.275-.368.423-.243.282-.494.575-.739.808-.398.38-.877.706-1.513.773a1.42 1.42 0 0 1-1.445-.83c-.27-.608-.352-1.395-.329-2.21.024-.826.16-1.73.365-2.606.206-.875.486-1.733.805-2.466.315-.722.687-1.364 1.094-1.772a2.34 2.34 0 0 1 .433-.335.504.504 0 0 1-.028-.079zm2.036.412c-.877.185-1.469.443-1.733.708-.276.276-.587.783-.885 1.465a13.748 13.748 0 0 0-.748 2.295 12.351 12.351 0 0 0-.339 2.406c-.022.755.062 1.368.243 1.776a.42.42 0 0 0 .426.24c.327-.034.61-.199.929-.502.212-.202.4-.423.615-.674.133-.156.276-.323.44-.504C4.861 9.969 5.978 9.027 8 9.027s3.139.942 3.965 1.855c.164.181.307.348.44.504.214.251.403.472.615.674.318.303.601.468.929.503a.42.42 0 0 0 .426-.241c.18-.408.265-1.02.243-1.776a12.354 12.354 0 0 0-.339-2.406 13.753 13.753 0 0 0-.748-2.295c-.298-.682-.61-1.19-.885-1.465-.264-.265-.856-.523-1.733-.708-.85-.179-1.877-.27-2.913-.27-1.036 0-2.063.091-2.913.27z"/>
+                </svg>
+                <a class="navbar-brand" id="hello"  href="#">Core Creators</a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Our Games
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" th:href="@{/Product/Videogames}">All Video games</a>
+                                <a class="dropdown-item" th:href="@{/Product/Videogames}">2D games</a>
+                                <a class="dropdown-item" th:href="@{/Product/Videogames}">3D games</a>
+                                <a class="dropdown-item" th:href="@{/Product/Videogames}">Virtual Reality</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Work with Us
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="@{/Jobs/Jobs}">Designers</a>
+                                <a class="dropdown-item" href="@{/Jobs/Jobs}">Unity game developers</a>
+                                <a class="dropdown-item" href="@{/Jobs/Jobs}">Front end developers</a>
+                                <a class="dropdown-item" href="@{/Jobs/Jobs}">iOS developers</a>
+                                <a class="dropdown-item" href="@{/Jobs/Jobs}">Android developers</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Learn
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="@{/Courses/courses}">2D Design</a>
+                                <a class="dropdown-item" href="@{/Courses/courses}">3D Design on Blender</a>
+                                <a class="dropdown-item" href="@{/Courses/courses}">Game development</a>
+                                <a class="dropdown-item" href="@{/Courses/courses}">C#</a>
+                            </div>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">News <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Shop</a>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                            </svg>
+                        </li>
+                        <li>
+                            <button class="btn btn-primary" type="submit">Register | Login </button>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+
+        
+    
         </header>
 
         <footer th:fragment="footer" class="bg-info text-white mt-5 p-2">
@@ -78,8 +148,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </div>
             </div>
         </footer>
-        
-        
+
+
 
         <div>TODO write content</div>
     </body>
