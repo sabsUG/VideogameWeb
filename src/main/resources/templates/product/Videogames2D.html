@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org" >
+    <head>
+        <title>Video games Company</title>
+        <meta charset="UTF-8"/>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>  
+
+        <link rel="stylesheet" th:href="@{/styles/plantilla.css}"/>
+        <link rel="stylesheet" th:href="@{/styles/listed.css}"/>
+        <style>
+            .navbar{
+                display:flex;
+                justify-content:space-between;
+                column-gap: 10px;
+            }
+            .nav-link{
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .navbar-brand{
+                margin-right: 30px;
+            }
+            #hello{
+                color: #4A9DFF;
+            }
+            #register{
+
+                margin-left: 32px;
+            }
+            #logo{
+                margin-left: 20px;
+
+            }
+            .container{
+                margin-top: 50px;
+                padding-left: 60px;
+                justify-content: left;
+                column-gap: 0;
+                row-gap: 0;
+            }
+            h3{
+                margin-top: 30px;
+                margin-left: 50px;
+                color: #F8A829;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <header th:replace="~{layout/plantilla :: header}"/>
+        <h3>
+            Our 2D Games
+        </h3>
+        <header th:replace="~{product/fragmentos :: Videogames2D}"/>
+        <header th:replace="~{layout/plantilla :: footer}"/>
+
+
+    </body>
+</html>

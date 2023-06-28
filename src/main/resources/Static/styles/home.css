@@ -1,0 +1,85 @@
+
+
+.navbar-nav > li {
+
+    padding-top: 10px;
+    padding-left:25px;
+    padding-right:25px;
+}
+
+.bg-image{
+    height: 650px;
+    border:none;
+}
+
+#Name{
+    position:absolute;
+    top: 200px;
+    right: 40px;
+    font-size: 4em;
+
+}
+#description{
+    position: absolute;
+    top: 300px;
+    right: 40px;
+    font-size: 2em;
+    white-space: pre-line;
+
+
+}
+
+#Since{
+
+    height: 500px;
+    background-color: white ; /*#CBC9C9 grey */
+    margin-left: 20px;
+
+}
+.card-body{
+    margin-left: 70px;
+}
+#ceo{
+    margin-left: 25px;
+    color:#4A9DFF;
+}
+.card{
+    border: none;
+
+}
+.cards-ceos{
+    padding-top: 40px;
+    padding-left:20px;
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+
+}
+#Rachel{
+    margin-left: 40px;
+}
+#rachelceo{
+    margin-left: 55px;
+    color:#4A9DFF;
+}
+#jacksonceo{
+    margin-left: 49px;
+    color:#4A9DFF;
+}
+#jackson{
+    margin-left: 60px;
+}
+
+.Who_we_are{
+    margin-top: 100px;
+    display: flex;
+
+    column-gap: 200px;
+}
+.mortal{
+    width:600px;
+    height: 700px;
+}
+
+

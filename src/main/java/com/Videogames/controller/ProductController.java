@@ -35,6 +35,72 @@ public class ProductController {
         return "/product/listed";
     }
     
+    @GetMapping("/Videogames2D")
+    public String get2DVideogames(Model model) {
+        var products = productService.getProducts();
+        model.addAttribute("products", products);
+        model.addAttribute("totalProducts", products.size());
+        return "/product/Videogames2d";
+    }
+    
+    @GetMapping("/AllVideogames")
+    public String getAllVideogames(Model model) {
+        var products = productService.getProducts();
+        model.addAttribute("products", products);
+        model.addAttribute("totalProducts", products.size());
+        return "/product/AllVideogames";
+    }
+    @GetMapping("/Videogames3D")
+    public String get3DVideogames(Model model) {
+        var products = productService.getProducts();
+        model.addAttribute("products", products);
+        model.addAttribute("totalProducts", products.size());
+        return "/product/Videogames3D";
+    }
+    @GetMapping("/VideogamesVR")
+    public String getVRVideogames(Model model) {
+        var products = productService.getProducts();
+        model.addAttribute("products", products);
+        model.addAttribute("totalProducts", products.size());
+        return "/product/VideogamesVR";
+    }
+    @GetMapping("/LearnDesign2D")
+    public String get2DDesignCourses(Model model) {
+        var products = productService.getProducts();
+        model.addAttribute("products", products);
+        model.addAttribute("totalProducts", products.size());
+        return "/product/LearnDesign2D";
+    }
+    
+    
+    @GetMapping("/LearnDesign3D")
+    public String get3DDesignCourses(Model model) {
+        var products = productService.getProducts();
+        model.addAttribute("products", products);
+        model.addAttribute("totalProducts", products.size());
+        return "/product/LearnDesign3D";
+    }
+    @GetMapping("/LearnCsharp")
+    public String getCsharpCourses(Model model) {
+        var products = productService.getProducts();
+        model.addAttribute("products", products);
+        model.addAttribute("totalProducts", products.size());
+        return "/product/LearnCsharp";
+    }
+    @GetMapping("/LearnGamedev")
+    public String getGamedevCourses(Model model) {
+        var products = productService.getProducts();
+        model.addAttribute("products", products);
+        model.addAttribute("totalProducts", products.size());
+        return "/product/LearnGamedev";
+    }
+    @GetMapping("/Shop")
+    public String getShop(Model model) {
+        var products = productService.getProducts();
+        model.addAttribute("products", products);
+        model.addAttribute("totalProducts", products.size());
+        return "/product/Shop";
+    }
     
     @GetMapping("/new")
     public String newProduct(Product product) {

@@ -3,109 +3,25 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-    <head th:fragment="head">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
         <title>Video Games Company</title>
         <meta charset="UTF-8"/>
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
         <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
-
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>  
-        <link rel="stylesheet" href="plantilla.css"/>
-        <style>
-
-            .navbar-nav > li {
-
-                padding-top: 10px;
-                padding-left:25px;
-                padding-right:25px;
-            }
-
-            .bg-image{
-                height: 650px;
-                border:none;
-            }
-
-            #Name{
-                position:absolute;
-                top: 200px;
-                right: 40px;
-                font-size: 4em;
-
-            }
-            #description{
-                position: absolute;
-                top: 300px;
-                right: 40px;
-                font-size: 2em;
-                white-space: pre-line;
-
-
-            }
-
-            #Since{
-
-                height: 500px;
-                background-color: white ; /*#CBC9C9 grey */
-                margin-left: 20px;
-
-            }
-            .card-body{
-                margin-left: 70px;
-            }
-            #ceo{
-                margin-left: 25px;
-                color:#4A9DFF;
-            }
-            .card{
-                border: none;
-
-            }
-            .cards-ceos{
-                padding-top: 40px;
-                padding-left:20px;
-                display:flex;
-                flex-wrap: nowrap;
-                justify-content: space-between;
-
-
-            }
-            #Rachel{
-                margin-left: 40px;
-            }
-            #rachelceo{
-                margin-left: 55px;
-                color:#4A9DFF;
-            }
-            #jacksonceo{
-                margin-left: 49px;
-                color:#4A9DFF;
-            }
-            #jackson{
-                margin-left: 60px;
-            }
-
-            .Who_we_are{
-                margin-top: 100px;
-                display: flex;
-
-                column-gap: 200px;
-            }
-            .mortal{
-                width:600px;
-                height: 700px;
-            }
-
-
-
-        </style>
+        <link rel="stylesheet" th:href="@{styles/plantilla.css}"/>
+        <link rel="stylesheet" th:href="@{styles/home.css}"/>
+        
+        
     </head>
     <body>
-        <!-- Jumbotron -->
         <div th:fragment="Home">
+            <!-- Jumbotron -->
+        <div>
             <div
                 class="bg-image p-5 text-center shadow-1-strong mb-5 text-white"
                 style="opacity: 0.9;background-image: url('https://s3.amazonaws.com/prod-media.gameinformer.com/styles/full/s3/2018/08/16/440f596b/hollowknightbanner.jpg');"
@@ -204,6 +120,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </p>
             </div>
 
+        </div>
         </div>
     </body>
 </html>

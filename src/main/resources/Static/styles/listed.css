@@ -1,0 +1,50 @@
+
+.card-body > h4{
+    font-weight: 400;
+    color: #4A9DFF;
+}
+
+.card-body > p{
+    font-weight: 200;
+    font-size: 0.8em;
+}
+
+
+body{
+  margin: 5px 0;
+}
+
+.container{
+    margin-top: 50px;
+    padding-left: 60px;
+    justify-content: left;
+    row-gap: 20px;
+    column-gap: 20px;
+}
+
+.card{
+  
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  display: flex;
+
+  width: 290px;
+  height: 320px;
+  
+}
+.card:hover{
+  transform: scale(1.1);
+  transition: all linear 200ms;
+  z-index: 1;
+  box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+  cursor: pointer;
+}
+
+#AddToCart{
+    background-color: #F8A829;
+    color: white;
+    border: none;
+}
+#price{
+    font-size: 1.2em;
+}

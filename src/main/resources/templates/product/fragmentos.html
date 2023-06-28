@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head>
+        <title>Video game company</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="UTF-8"/>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>  
+        <link rel="stylesheet" th:href="@{styles/plantilla.css}"/>
+        <link rel="stylesheet" th:href="@{styles/listed.css}"/>
+    </head>
+    <body>
+
+
+        <section th:fragment="AllVideogames">
+            <div th:if="${products != null and !products.empty}" class="container d-flex flex-wrap align-items-center">
+
+                <div th:each="product: ${products}" >
+                    <div th:if="${product.category == 'Videogames2D' or product.category == 'Videogames3D' or product.category == 'VideogamesVR'}">
+
+                        <div class="m-2 card">
+                            <img th:src="@{${product.rutaImagen}}" class="card-img-top" style="height: 150px" alt="..."/>
+                            <div class="card-body">
+                                <h4>[[${product.product_name}]]</h4>
+                                <p class="card-text">[[${product.description}]]</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section th:fragment="Videogames2D">
+            <div th:if="${products != null and !products.empty}" class="container d-flex flex-wrap align-items-center">
+                <div th:each="product: ${products}" >
+                    <div th:if="${product.category == 'Videogames2D'}">
+                        <div class="m-2 card">
+                            <img th:src="@{${product.rutaImagen}}" class="card-img-top" style="height: 150px" alt="..."/>
+                            <div class="card-body">
+                                <h4>[[${product.product_name}]]</h4>
+                                <p class="card-text">[[${product.description}]]</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section th:fragment="Videogames3D">
+            <div th:if="${products != null and !products.empty}" class="container d-flex flex-wrap align-items-center">
+                <div th:each="product: ${products}" >
+                    <div th:if="${product.category == 'Videogames3D'}">
+                        <div class="m-2 card">
+                            <img th:src="@{${product.rutaImagen}}" class="card-img-top" style="height: 150px" alt="..."/>
+                            <div class="card-body">
+                                <h4>[[${product.product_name}]]</h4>
+                                <p class="card-text">[[${product.description}]]</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section th:fragment="VideogamesVR">
+            <div th:if="${products != null and !products.empty}" class="container d-flex flex-wrap align-items-center">
+                <div th:each="product: ${products}" >
+                    <div th:if="${product.category == 'VideogamesVR'}">
+                        <div class="m-2 card">
+                            <img th:src="@{${product.rutaImagen}}" class="card-img-top" style="height: 150px" alt="..."/>
+                            <div class="card-body">
+                                <h4>[[${product.product_name}]]</h4>
+                                <p class="card-text">[[${product.description}]]</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section th:fragment="Design2D">
+            <div th:if="${products != null and !products.empty}" class="container d-flex flex-wrap align-items-center">
+                <div th:each="product: ${products}" >
+                    <div th:if="${product.category == 'Courses2D_design'}">
+                        <div class="m-2 card">
+                            <img th:src="@{${product.rutaImagen}}" class="card-img-top" style="height: 150px" alt="..."/>
+                            <div class="card-body">
+                                <h4>[[${product.product_name}]]</h4>
+                                <p id="price" class="card-text">$[[${product.price}]]</p>
+                                <button id="AddToCart" class="btn btn-primary" type="submit">Add to Cart</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section th:fragment="Design3D">
+            <div th:if="${products != null and !products.empty}" class="container d-flex flex-wrap align-items-center">
+                <div th:each="product: ${products}" >
+                    <div th:if="${product.category == 'Courses3D_design'}">
+                        <div class="m-2 card">
+                            <img th:src="@{${product.rutaImagen}}" class="card-img-top" style="height: 150px" alt="..."/>
+                            <div class="card-body">
+                                <h4>[[${product.product_name}]]</h4>
+                                <p id="price" class="card-text">$[[${product.price}]]</p>
+                                <button id="AddToCart" class="btn btn-primary" type="submit">Add to Cart</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section th:fragment="LearnCsharp">
+            <div th:if="${products != null and !products.empty}" class="container d-flex flex-wrap align-items-center">
+                <div th:each="product: ${products}" >
+                    <div th:if="${product.category == 'CoursesC#'}">
+                        <div class="m-2 card">
+                            <img th:src="@{${product.rutaImagen}}" class="card-img-top" style="height: 150px" alt="..."/>
+                            <div class="card-body">
+                                <h4>[[${product.product_name}]]</h4>
+                                <p id="price" class="card-text">$[[${product.price}]]</p>
+                                <button id="AddToCart" class="btn btn-primary" type="submit">Add to Cart</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section th:fragment="LearnGameDev">
+            <div th:if="${products != null and !products.empty}" class="container d-flex flex-wrap align-items-center">
+                <div th:each="product: ${products}" >
+                    <div th:if="${product.category == 'CoursesGameDev'}">
+                        <div class="m-2 card">
+                            <img th:src="@{${product.rutaImagen}}" class="card-img-top" style="height: 150px" alt="..."/>
+                            <div class="card-body">
+                                <h4>[[${product.product_name}]]</h4>
+                                <p id="price" class="card-text">$[[${product.price}]]</p>
+                                <button id="AddToCart" class="btn btn-primary" type="submit">Add to Cart</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section th:fragment="Shop">
+            <div th:if="${products != null and !products.empty}" class="container d-flex flex-wrap align-items-center">
+                <div th:each="product: ${products}" >
+                    <div th:if="${product.category == 'Shop'}">
+                        <div class="m-2 card">
+                            <img th:src="@{${product.rutaImagen}}" class="card-img-top" style="height: 150px" alt="..."/>
+                            <div class="card-body">
+                                <h4>[[${product.product_name}]]</h4>
+                                <p id="price" class="card-text">$[[${product.price}]]</p>
+                                <button id="AddToCart" class="btn btn-primary" type="submit">Add to Cart</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </body>
+</html>

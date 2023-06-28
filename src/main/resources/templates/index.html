@@ -5,12 +5,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 -->
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns="http://www.w3.org/1999/xhtml">
-    <head th:replace="~{layout/plantilla :: head}">
-        <title>Tech Shop </title>
+    <head>
+        <title>Video Games Company</title>
+        <meta charset="UTF-8"/>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>  
+        <link rel="stylesheet" th:href="@{styles/plantilla.css}"/>
+        <link rel="stylesheet" th:href="@{styles/home.css}"/>
+        
+        
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
-        <div th:replace="~{layout/Home}"/>
+       
+        <section th:replace="~{layout/Home :: Home}"></section>
+    
         <footer th:replace="~{layout/plantilla :: footer}"/>      
     </body>
 </html>

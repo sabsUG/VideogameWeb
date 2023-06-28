@@ -1,0 +1,46 @@
+#main{
+    height: 75px;
+}
+
+#logo{
+    margin-left: 20px;
+}
+.navbar{
+    display:flex;
+    justify-content:space-between;
+
+}
+.navbar-nav > li {
+
+}
+.navbar-nav > li > button{
+
+    background-color: #4A9DFF;
+    border: none;
+}
+.navbar-nav > li > a {
+
+    color: black;
+}
+.navbar .nav-item .dropdown-menu{
+    display: none;
+
+}
+.navbar .nav-item:hover .nav-link{
+    border-bottom: 2px solid #F8A829;
+}
+.navbar .nav-item:hover .dropdown-menu{
+    display: block;
+}
+.navbar .nav-item .dropdown-menu{
+    margin-top:0;
+
+}
+#hello{
+    margin-right: 30px;
+    color: #4A9DFF;
+}
+svg{
+
+    color: #4A9DFF;
+}
