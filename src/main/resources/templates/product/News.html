@@ -26,26 +26,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 margin-right: 20px;
             }
             .navbar-brand{
-                 margin-right: 30px;
+                margin-right: 30px;
             }
             .square{
-                height: 1300px;
+
                 width: auto;
                 color: #55555530;
+            }
+            .inner-square {
+                height: 800px;
+                width: auto;
+                background-color: #ecebeb;
+                opacity: 0.9;
             }
             #hello{
                 color: #4A9DFF;
             }
-            #register{ 
-                
+            #register{
+
                 margin-left: 32px;
             }
             #logo{
                 margin-left: 20px;
-                
-            }  
-            h3{
-                margin-top: 30px;
+
+            }
+            h5{
+
                 margin-left: 50px;
                 color: #F8A829;
             }
@@ -54,23 +60,55 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
-        
-        <div class ="square">
-            <h3> 
-            News
-            </h3>
-            <div style="
-                 height: inherit;
-                 opacity: 0.7;
-                 width: auto;
-                background-image: url('https://s3.amazonaws.com/prod-media.gameinformer.com/styles/full/s3/2018/08/16/440f596b/hollowknightbanner.jpg')">
-                <div style="
-                     "></div>        
+        <div style="
+             background-color: dimgray;
+             height: 900px"
+             >
+
+            <div class ="square">
+                <h5>
+                    News
+                </h5>
+                <div class="inner-square"
+                     <div style="
+                     margin: 40px;
+                     background-image: url('https://s3.amazonaws.com/prod-media.gameinformer.com/styles/full/s3/2018/08/16/440f596b/hollowknightbanner.jpg')">
+
+                    <div style="
+                         height: 800px;
+                         width: auto;
+                         background-color: #ecebeb;
+                         opacity: 0.9;">
+                        <div style="margin: 30px">
+                        <h1 style="color:black">News</h1>
+                            <h2 style="color:blue">Hollow Knight Updates</h2>
+                                <h3 style="color:black"> 1.5.78.19566</h3>
+                                    <p style="color:black">Fixed Aspid Hunters and Primal Aspids sometimes spitting immediately after breaking out of jars.</p>
+                                    <p style="color:black">Fixed door in a city house staying locked sometimes after defeating the enemy.</p>
+                                    <p style="color:black">Fixed brightness resetting on quit to menu if set to minimum value.</p>
+                                <h3 style="color:black"> 1.5.78.19986</h3>
+                                    <p style="color:black">Fixed Low and Medium background blur to have the same vibrancy as High.</p>
+                                    <p style="color:black">Fixed door in a city house staying locked sometimes after defeating the enemy.</p>
+                            <h2 style="color:blue">Plants Vs Zombies</h2>
+                                <h3 style="color:black"> 1.4.5</h3>
+                                <p style="color:black">The game was released for Android devices worldwide.</p>
+                                <p style="color:black">The 1.6 update was released for iOS and Android, tweaking Piñata Party alerts.</p>
+                                <h3 style="color:black"> 1.5.5</h3>
+                                <p style="color:black"> The 1.8 update was released for iOS translating the Piñata Party alerts.</p>
+                                <p style="color:black">Info about the Dr. Zomboss fights was released.</p>
+                                <h3 style="color:black"> 2.5.1</h3>
+                                <p style="color:black"> The first Dark Ages Piñata Party became available, as well as the addition of the premium plant Hypno-shroom.</p>
+                                <p style="color:black">The 2.5.1 update along with Dark Ages: Part 2 was released worldwide.</p>
+                            
+                        </div>
+                    </div>        
+                </div>
             </div>
-                 
         </div>
-        
+        <div style="background-color: gray"></div>
+
         <header th:replace="~{layout/plantilla :: footer}"/>
     </body>
 </html>
- 
+
+
