@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-
-
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org" >
     <head>
@@ -11,7 +13,6 @@
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>  
-
         <link rel="stylesheet" th:href="@{/styles/plantilla.css}"/>
         <link rel="stylesheet" th:href="@{/styles/listed.css}"/>
         <style>
@@ -25,43 +26,51 @@
                 margin-right: 20px;
             }
             .navbar-brand{
-                margin-right: 30px;
+                 margin-right: 30px;
+            }
+            .square{
+                height: 1300px;
+                width: auto;
+                color: #55555530;
             }
             #hello{
                 color: #4A9DFF;
             }
-            #register{
-
+            #register{ 
+                
                 margin-left: 32px;
             }
             #logo{
                 margin-left: 20px;
-
-            }
-            .container{
-                margin-top: 50px;
-                padding-left: 60px;
-                justify-content: left;
-                column-gap: 0;
-                row-gap: 0;
-            }
+                
+            }  
             h3{
                 margin-top: 30px;
                 margin-left: 50px;
                 color: #F8A829;
             }
-            
+
         </style>
     </head>
     <body>
-
         <header th:replace="~{layout/plantilla :: header}"/>
-        <h3>
-            3D Design Courses
-        </h3>
-        <header th:replace="~{product/fragmentos :: Design3D}"/>
+        
+        <div class ="square">
+            <h3> 
+            News
+            </h3>
+            <div style="
+                 height: inherit;
+                 opacity: 0.7;
+                 width: auto;
+                background-image: url('https://s3.amazonaws.com/prod-media.gameinformer.com/styles/full/s3/2018/08/16/440f596b/hollowknightbanner.jpg')">
+                <div style="
+                     "></div>        
+            </div>
+                 
+        </div>
+        
         <header th:replace="~{layout/plantilla :: footer}"/>
-
-
     </body>
-</html> 
+</html>
+ 
