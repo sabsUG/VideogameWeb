@@ -156,6 +156,14 @@ public class ProductController {
         productService.save(product);
         return "redirect:/product/LearnGamedev";
     }
+    @PostMapping("/saveShop")
+    public String saveShop(Product product, @RequestParam("imagenFile") MultipartFile imagenFile){
+        if (!imagenFile.isEmpty()) {
+            productService.save(product);
+        }
+        productService.save(product);
+        return "redirect:/product/Shop";
+    }
 
 
     @GetMapping("/deleteVideogame/{idProduct}")
@@ -183,6 +191,11 @@ public class ProductController {
     public String deleteCourseGame(Product product) {
         productService.delete(product);
         return "redirect:/product/LearnGamedev";
+    }
+     @GetMapping("/deleteShop/{idProduct}")
+    public String deleteShop(Product product) {
+        productService.delete(product);
+        return "redirect:/product/Shop";
     }
 
 

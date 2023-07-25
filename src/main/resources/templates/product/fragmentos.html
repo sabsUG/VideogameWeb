@@ -206,7 +206,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                 <h4>[[${product.product_name}]]</h4>
                                 <p id="price" class="card-text">$[[${product.price}]]</p>
                                 <button id="AddToCart" class="btn btn-primary" type="submit">Add to Cart</button>
-                                <a th:href="@{/product/delete/}+${product.idProduct}"
+                                <a th:href="@{/product/deleteShop/}+${product.idProduct}"
                                    class="btn btn-danger" >
                                     <i class="fas fa-trash"></i></a>
                                 <a th:href="@{/product/editShop/}+${product.idProduct}"
@@ -591,6 +591,73 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </div>
         </section>
 
+        
+        <section th:fragment="botonesAgregarShop">
+            <div class="container" sec:authorize="hasRole('ROLE_ADMIN')">
+                <div class="row">
+                    <div class="col-md-3">   
+                        <button 
+                            type="button" 
+                            class="btn btn-primary btn-block" 
+                            id="addVideogame"
+                            data-bs-toggle="modal" 
+                            data-bs-target="#addShop">
+                            <i class="fas fa-plus"></i> [[#{product.add}]]
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 2 Fragmento para agregar categoria, es la ventana modal -->
+        <section th:fragment="addShop">
+            <div id="addShop" 
+                 class="modal fade" 
+                 tabindex="-1" 
+                 aria-labelledby="exampleModalLabel" 
+                 aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title">[[#{producto.agregar}]]</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div> 
+                        <form th:action="@{/product/saveShop}" th:object="${product}"
+                              method="POST" class="was-validated" enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="product_name">[[#{product.product_name}]]</label>
+                                    <input type="text" class="form-control" name="product_name" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="category">[[#{product.category}]]</label>
+                                    <select id="category" name="category" class="form-select">
+                                        <option value="Shop">Shop</option>
+                                        
+
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="price">[[#{product.price}]]</label>
+                                    <input type="text" class="form-control" name="price" required="true"/>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="ruta_imagen">[[#{product.rutaImagen}]]</label>
+                                    <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
+                                    <img id="blah" src="#" alt="your image" height="200"/>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" type="submit">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
         <section th:fragment="editProduct">
@@ -1015,6 +1082,90 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </div>
                     <div class="col-md-4 d-grid">                                
                         <a th:href="@{/product/deleteCourseGame/}+${product.idProduct}"
+                           class="btn btn-danger">
+                            <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-grid">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-check"></i> [[#{accion.guardar}]]
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section th:fragment="editShop">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <form method="POST"
+                          th:action="@{/product/saveShop}" 
+                          th:object="${product}"
+                          class="was-validated"                          
+                          enctype="multipart/form-data">
+                        <input type="hidden" name="idProduct" th:field="*{idProduct}"/>
+                        <input type="hidden" name="rutaImagen" th:field="*{rutaImagen}"/>
+                        <section th:replace="~{product/fragmentos :: botonesEditarShop}"/>
+                        <div id=details>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="cardEdit">
+                                            <div class="card-header">
+                                                <h4>[[#{accion.actualizar}]]</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label for="product_name">[[#{product.product_name}]]</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="product_name" th:field="*{product_name}"
+                                                           required="false">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="category">[[#{product.category}]]</label>
+                                                    <select id="category" name="category" class="form-select">
+                                                        <option value="Shop">Shop</option>
+                                                        
+
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="price">[[#{product.price}]]</label>
+                                                    <input type="text" class="form-control" 
+                                                           name="price" th:field="*{price}"
+                                                           required="true">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="imagen">[[#{categoria.rutaImagen}]]</label>
+                                                    <input class="form-control" type="file" name="imagenFile"
+                                                           onchange="readURL(this);" />
+                                                    <img id="blah" th:src="@{${product.rutaImagen}}" alt="your image" height="200"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5 Fragmento que se utiliza en el fragmento anterior -->
+        <section th:fragment="botonesEditarShop">
+            <div class="container py-4 mb-4">
+                <div class="row">
+                    <div class="col-md-4 d-grid">
+                        <a th:href="@{/product/Shop}" class="btn btn-primary">
+                            <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-grid">                                
+                        <a th:href="@{/product/deleteShop/}+${product.idProduct}"
                            class="btn btn-danger">
                             <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
                         </a>
