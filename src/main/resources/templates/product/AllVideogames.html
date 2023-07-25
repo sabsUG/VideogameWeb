@@ -25,18 +25,18 @@
                 margin-right: 20px;
             }
             .navbar-brand{
-                 margin-right: 30px;
+                margin-right: 30px;
             }
             #hello{
                 color: #4A9DFF;
             }
             #register{
-                
+
                 margin-left: 32px;
             }
             #logo{
                 margin-left: 20px;
-                
+
             }
             h3{
                 margin-top: 30px;
@@ -49,12 +49,18 @@
     <body>
 
         <header th:replace="~{layout/plantilla :: header}"/>
+
         <h3>
             Our Video games
         </h3>
-        <header th:replace="~{product/fragmentos :: AllVideogames}"/>
-        <header th:replace="~{layout/plantilla :: footer}"/>
+        <section th:replace="~{product/fragmentos :: botonesAgregar2}"/>
+        <section th:replace="~{product/fragmentos :: addV}"/>
 
- 
+
+
+        <section th:replace="~{product/fragmentos :: AllVideogames}"/>
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+
+
     </body>
 </html>

@@ -19,7 +19,7 @@ public class ProjectConfig implements WebMvcConfigurer {
 
     /* localeResolver se utiliza para crear una sesión de cambio de idioma*/
     @Bean
-    public SessionLocaleResolver localeResolver() {
+    public org.springframework.web.servlet.LocaleResolver localeResolver() {
         var slr = new SessionLocaleResolver();
         slr.setDefaultLocale(Locale.getDefault());
         slr.setLocaleAttributeName("session.current.locale");

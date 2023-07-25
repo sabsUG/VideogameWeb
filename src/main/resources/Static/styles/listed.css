@@ -29,7 +29,7 @@ body{
   display: flex;
 
   width: 290px;
-  height: 320px;
+  height: 360px;
   
 }
 .card:hover{
@@ -48,3 +48,8 @@ body{
 #price{
     font-size: 1.2em;
 }
+#addVideogame{
+    background-color:#F8A829;
+    border: 2px solid #F8A829;
+}
+

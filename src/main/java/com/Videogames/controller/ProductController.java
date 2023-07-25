@@ -113,33 +113,114 @@ public class ProductController {
     /*
     @Autowired
     private FirebaseStorageServiceImpl firebaseStorageService;
-    
-    @PostMapping("/save")
-    public String saveProduct(Product product,
-            @RequestParam("imagenFile") MultipartFile imagenFile) {        
+    */
+    @PostMapping("/saveVideogame")
+    public String saveProduct(Product product, @RequestParam("imagenFile") MultipartFile imagenFile){
         if (!imagenFile.isEmpty()) {
             productService.save(product);
-            product.setRutaImagen(
-                    firebaseStorageService.cargaImagen(
-                            imagenFile, 
-                            "product", 
-                            product.getIdProduct()));
         }
         productService.save(product);
-        return "redirect:/product/listed";
+        return "redirect:/product/AllVideogames";
     }
-*/
+    
+     @PostMapping("/save2dCourse")
+    public String save2dCourse(Product product, @RequestParam("imagenFile") MultipartFile imagenFile){
+        if (!imagenFile.isEmpty()) {
+            productService.save(product);
+        }
+        productService.save(product);
+        return "redirect:/product/LearnDesign2D";
+    }
+    @PostMapping("/save3dCourse")
+    public String save3dCourse(Product product, @RequestParam("imagenFile") MultipartFile imagenFile){
+        if (!imagenFile.isEmpty()) {
+            productService.save(product);
+        }
+        productService.save(product);
+        return "redirect:/product/LearnDesign3D";
+    }
+    @PostMapping("/savecCourse")
+    public String savecCourse(Product product, @RequestParam("imagenFile") MultipartFile imagenFile){
+        if (!imagenFile.isEmpty()) {
+            productService.save(product);
+        }
+        productService.save(product);
+        return "redirect:/product/LearnCsharp";
+    }
+    
+    @PostMapping("/saveGameCourse")
+    public String saveGameCourse(Product product, @RequestParam("imagenFile") MultipartFile imagenFile){
+        if (!imagenFile.isEmpty()) {
+            productService.save(product);
+        }
+        productService.save(product);
+        return "redirect:/product/LearnGamedev";
+    }
 
-    @GetMapping("/delete/{idProduct}")
-    public String deleteProduct(Product product) {
+
+    @GetMapping("/deleteVideogame/{idProduct}")
+    public String deleteVideogame(Product product) {
         productService.delete(product);
-        return "redirect:/product/listed";
+        return "redirect:/product/AllVideogames";
+    }
+    
+    @GetMapping("/deleteCourse2D/{idProduct}")
+    public String deleteCourse2D(Product product) {
+        productService.delete(product);
+        return "redirect:/product/LearnDesign2D";
+    }
+     @GetMapping("/deleteCourse3D/{idProduct}")
+    public String deleteCourse3D(Product product) {
+        productService.delete(product);
+        return "redirect:/product/LearnDesign3D";
+    }
+     @GetMapping("/deleteCourseC/{idProduct}")
+    public String deleteCourseC(Product product) {
+        productService.delete(product);
+        return "redirect:/product/LearnCsharp";
+    }
+     @GetMapping("/deleteCourseGame/{idProduct}")
+    public String deleteCourseGame(Product product) {
+        productService.delete(product);
+        return "redirect:/product/LearnGamedev";
     }
 
-    @GetMapping("/edit/{idProduct}")
-    public String editProduct(Product product, Model model) {
+
+    @GetMapping("/editVideogame/{idProduct}")
+    public String editVideogame(Product product, Model model) {
         product = productService.getProduct(product);
         model.addAttribute("product", product);
-        return "/product/edit";
+        return "/product/editVideogame";
+    }
+    
+     @GetMapping("/edit2dCourse/{idProduct}")
+    public String edit2DCourse(Product product, Model model) {
+        product = productService.getProduct(product);
+        model.addAttribute("product", product);
+        return "/product/edit2dCourse";
+    }
+    @GetMapping("/edit3dCourse/{idProduct}")
+    public String edit3DCourse(Product product, Model model) {
+        product = productService.getProduct(product);
+        model.addAttribute("product", product);
+        return "/product/edit3dCourse";
+    }
+    @GetMapping("/editcCourse/{idProduct}")
+    public String editcCourse(Product product, Model model) {
+        product = productService.getProduct(product);
+        model.addAttribute("product", product);
+        return "/product/editcCourse";
+    }
+    @GetMapping("/editgameCourse/{idProduct}")
+    public String editgameCourse(Product product, Model model) {
+        product = productService.getProduct(product);
+        model.addAttribute("product", product);
+        return "/product/editgameCourse";
+    }
+    @GetMapping("/editShop/{idProduct}")
+    public String editShop(Product product, Model model) {
+        product = productService.getProduct(product);
+        model.addAttribute("product", product);
+        return "/product/editShop";
     }
 }

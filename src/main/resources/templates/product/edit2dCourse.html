@@ -25,46 +25,26 @@
                 margin-right: 20px;
             }
             .navbar-brand{
-                margin-right: 30px;
+                 margin-right: 30px;
             }
             #hello{
                 color: #4A9DFF;
             }
             #register{
-
+                
                 margin-left: 32px;
             }
             #logo{
                 margin-left: 20px;
-
-            }
-            .container{
-                margin-top: 50px;
-                padding-left: 60px;
-                justify-content: left;
-                column-gap: 0;
-                row-gap: 0;
-            }
-            h3{
-                margin-top: 30px;
-                margin-left: 50px;
-                color: #F8A829;
+                
             }
 
         </style>
     </head>
     <body>
-
         <header th:replace="~{layout/plantilla :: header}"/>
-        <h3>
-            C# Courses
-        </h3>
-        <section th:replace="~{product/fragmentos :: botonesAgregarC}"/>
-        <section th:replace="~{product/fragmentos :: addC}"/>
-        <section th:replace="~{product/fragmentos :: LearnCsharp}"/>
-        
+        <header th:replace="~{product/fragmentos :: edit2dCourse}"/>
         <header th:replace="~{layout/plantilla :: footer}"/>
-
 
     </body>
 </html>
