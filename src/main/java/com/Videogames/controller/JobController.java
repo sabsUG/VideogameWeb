@@ -37,7 +37,50 @@ public class JobController {
     public String newJob(Job job) {
         return "/job/edit";
     }
-
+    
+    
+    @GetMapping("/Designers")
+    public String getDesigners(Model model) {
+        var jobs = jobService.getJobs();
+        model.addAttribute("jobs", jobs);
+        model.addAttribute("totalJobs", jobs.size());
+        return "/job/Designers";
+    }
+    
+    
+    @GetMapping("/Unity")
+    public String getUnity(Model model) {
+        var jobs = jobService.getJobs();
+        model.addAttribute("jobs", jobs);
+        model.addAttribute("totalJobs", jobs.size());
+        return "/job/Unity";
+    }
+    
+    @GetMapping("/FrontEnd")
+    public String getFrontEnd(Model model) {
+        var jobs = jobService.getJobs();
+        model.addAttribute("jobs", jobs);
+        model.addAttribute("totalJobs", jobs.size());
+        return "/job/FrontEnd";
+    }
+    
+    @GetMapping("/Ios")
+    public String getIos(Model model) {
+        var jobs = jobService.getJobs();
+        model.addAttribute("jobs", jobs);
+        model.addAttribute("totalJobs", jobs.size());
+        return "/job/Ios";
+    }
+    
+    @GetMapping("/Android")
+    public String getAndroid(Model model) {
+        var jobs = jobService.getJobs();
+        model.addAttribute("jobs", jobs);
+        model.addAttribute("totalJobs", jobs.size());
+        return "/job/Android";
+    }
+    
+    
     /*
     @Autowired
     private FirebaseStorageServiceImpl firebaseStorageService;

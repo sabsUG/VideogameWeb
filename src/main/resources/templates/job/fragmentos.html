@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head>
+        <title>Video game company</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="UTF-8"/>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>  
+        <link rel="stylesheet" th:href="@{styles/plantilla.css}"/>
+        <link rel="stylesheet" th:href="@{styles/listed.css}"/>
+    </head>
+    <body>
+
+        <section th:fragment="JobDesigners">
+            <div th:if="${jobs != null and !jobs.empty}" class="container d-flex flex-wrap align-items-center">
+                <div th:each="job: ${jobs}" >
+                    <div th:if="${job.category == 'Designer'}">
+                        <div class="m-2 job">
+                            <div class="card-body">
+                                <h4>[[${job.job_name}]]</h4>
+                                <p></p>
+                                <div class="row">
+                                    <div class="column">
+                                        <p class="card-text">[[${job.type}]]</p>
+                                        <p class="card-text">[[${job.level}]]</p>
+                                        <p class="card-text">Skills: [[${job.skills}]]</p>
+                                        <p class="card-text">Tools needed: [[${job.tools_needed}]]</p>
+                                        <p class="card-text">Salary: [[${job.salary}]]K</p>
+                                    </div>
+                                    <div class="column">
+                                        <p class="card-text">Description:</p>
+                                        <p class="card-text">[[${job.description}]]</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section th:fragment="JobUnity">
+            <div th:if="${jobs != null and !jobs.empty}" class="container d-flex flex-wrap align-items-center">
+                <div th:each="job: ${jobs}" >
+                    <div th:if="${job.category == 'Game developer'}">
+                        <div class="m-2 job">
+                            <div class="card-body">
+                                <h4>[[${job.job_name}]]</h4>
+                                <p></p>
+                                <div class="row">
+                                    <div class="column">
+                                        <p class="card-text">[[${job.type}]]</p>
+                                        <p class="card-text">[[${job.level}]]</p>
+                                        <p class="card-text">Skills: [[${job.skills}]]</p>
+                                        <p class="card-text">Tools needed: [[${job.tools_needed}]]</p>
+                                        <p class="card-text">Salary: [[${job.salary}]]K</p>
+                                    </div>
+                                    <div class="column">
+                                        <p class="card-text">Description:</p>
+                                        <p class="card-text">[[${job.description}]]</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section th:fragment="JobFrontEnd">
+            <div th:if="${jobs != null and !jobs.empty}" class="container d-flex flex-wrap align-items-center">
+                <div th:each="job: ${jobs}" >
+                    <div th:if="${job.category == 'Frontend developer'}">
+                        <div class="m-2 job">
+                            <div class="card-body">
+                                <h4>[[${job.job_name}]]</h4>
+                                <p></p>
+                                <div class="row">
+                                    <div class="column">
+                                        <p class="card-text">[[${job.type}]]</p>
+                                        <p class="card-text">[[${job.level}]]</p>
+                                        <p class="card-text">Skills: [[${job.skills}]]</p>
+                                        <p class="card-text">Tools needed: [[${job.tools_needed}]]</p>
+                                        <p class="card-text">Salary: [[${job.salary}]]K</p>
+                                    </div>
+                                    <div class="column">
+                                        <p class="card-text">Description:</p>
+                                        <p class="card-text">[[${job.description}]]</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section th:fragment="JobIos">
+            <div th:if="${jobs != null and !jobs.empty}" class="container d-flex flex-wrap align-items-center">
+                <div th:each="job: ${jobs}" >
+                    <div th:if="${job.category == 'iOS developer'}">
+                        <div class="m-2 job">
+                            <div class="card-body">
+                                <h4>[[${job.job_name}]]</h4>
+                                <p></p>
+                                <div class="row">
+                                    <div class="column">
+                                        <p class="card-text">[[${job.type}]]</p>
+                                        <p class="card-text">[[${job.level}]]</p>
+                                        <p class="card-text">Skills: [[${job.skills}]]</p>
+                                        <p class="card-text">Tools needed: [[${job.tools_needed}]]</p>
+                                        <p class="card-text">Salary: [[${job.salary}]]K</p>
+                                    </div>
+                                    <div class="column">
+                                        <p class="card-text">Description:</p>
+                                        <p class="card-text">[[${job.description}]]</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+         <section th:fragment="JobAndroid">
+            <div th:if="${jobs != null and !jobs.empty}" class="container d-flex flex-wrap align-items-center">
+                <div th:each="job: ${jobs}" >
+                    <div th:if="${job.category == 'Android developer'}">
+                        <div class="m-2 job">
+                            <div class="card-body">
+                                <h4>[[${job.job_name}]]</h4>
+                                <p></p>
+                                <div class="row">
+                                    <div class="column">
+                                        <p class="card-text">[[${job.type}]]</p>
+                                        <p class="card-text">[[${job.level}]]</p>
+                                        <p class="card-text">Skills: [[${job.skills}]]</p>
+                                        <p class="card-text">Tools needed: [[${job.tools_needed}]]</p>
+                                        <p class="card-text">Salary: [[${job.salary}]]K</p>
+                                    </div>
+                                    <div class="column">
+                                        <p class="card-text">Description:</p>
+                                        <p class="card-text">[[${job.description}]]</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

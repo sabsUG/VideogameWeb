@@ -53,3 +53,22 @@ body{
     border: 2px solid #F8A829;
 }
 
+.job{
+  border-bottom: 1px solid #888;
+  display: flex;
+  padding: 20px 20px;
+  width: 1180px;
+  height: 320px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
