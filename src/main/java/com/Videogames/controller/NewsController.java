@@ -19,45 +19,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @Slf4j
-@RequestMapping("/news")
+@RequestMapping("/update")
 public class NewsController {
     @Autowired
     private NewsService newsService;
-    
-    @GetMapping("/listed")
-    public String begin(Model model) {
+
+    @GetMapping("/News")
+    public String newNew(Model model) {
         var news = newsService.getNews();
         model.addAttribute("news", news);
         model.addAttribute("totalNews", news.size());
-        return "/news/listed";
+        return "/update/News";
     }
     
-    
-    @GetMapping("/news")
+    @GetMapping("/new")
     public String newNews(News news) {
         return "/news/edit";
     }
-
-    /*
-    @Autowired
-    private FirebaseStorageServiceImpl firebaseStorageService;
     
-    @PostMapping("/save")
-    public String saveJob(Job job,
-            @RequestParam("imagenFile") MultipartFile imagenFile) {        
-        if (!imagenFile.isEmpty()) {
-            jobService.save(job);
-            job.setRutaImagen(
-                    firebaseStorageService.cargaImagen(
-                            imagenFile, 
-                            "job", 
-                            job.getIdJob()));
-        }
-        jobService.save(product);
-        return "redirect:/job/listed";
-    }
-*/
-
     @GetMapping("/delete/{idNews}")
     public String deleteNews(News news) {
         newsService.delete(news);

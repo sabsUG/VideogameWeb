@@ -70,7 +70,7 @@ public class ProjectConfig implements WebMvcConfigurer {
         registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
  }
 
-    @Bean
+    /*@Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((request) -> request
@@ -78,6 +78,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/carrito/**","/pruebas/**","/reportes/**",
                         "/register/**","/js/**","/webjars/**", "/styles/**", "/login")
                         .permitAll()
+                        
                 .requestMatchers(
                         "/product/Videogames2D", "/product/Videogames3D", "/product/AllVideogames", "/product/VideogamesVR", 
                         "/product/LearnDesign2D", "/product/LearnDesign3D", "/product/LearnCsharp", "/product/LearnGamedev", "/product/Shop",
@@ -88,20 +89,24 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/job/edit/**","/job/delete/**",
                         "/usuario/nuevo","/usuario/guardar",
                         "/usuario/modificar/**","/usuario/eliminar/**",
-                        "/reportes/**"
+                        "/reportes/**",
+                        "/update/News"
                 ).hasRole("ADMIN")
+                        
                 .requestMatchers(
                         "/product/Videogames2D", "/product/Videogames3D", "/product/AllVideogames", "/product/VideogamesVR", 
                         "/product/LearnDesign2D", "/product/LearnDesign3D", "/product/LearnCsharp", "/product/LearnGamedev", "/product/Shop",
                         "/job/listed",
-                        "/usuario/listado"
+                        "/usuario/listado",
+                        "/update/News"
                 ).hasAnyRole("ADMIN", "VENDEDOR")
                 .requestMatchers(
                        
                          "/product/Videogames2D", "/product/Videogames3D", "/product/AllVideogames", "/product/VideogamesVR", 
                         "/product/LearnDesign2D", "/product/LearnDesign3D", "/product/LearnCsharp", "/product/LearnGamedev", "/product/Shop",
                         "/job/listed",
-                        "/usuario/listado"
+                        "/usuario/listado", 
+                        "/update/News"
                 )
                 .hasRole("USER")
                 )

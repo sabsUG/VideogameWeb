@@ -219,25 +219,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </div>
             </div>
         </section>
-        <!--<section th:fragment="News">
-            <div th:if="${products != null and !products.empty}" class="container d-flex flex-wrap align-items-center">
-                <div th:each="product: ${products}" >
-                    <div th:if="${product.category == 'News'}">
-                        <div class="m-2 card">
-                            <img th:src="@{${product.rutaImagen}}" class="card-img-top" style="height: 150px" alt="..."/>
-                            <div class="card-body">
-                                <h4>[[${product.product_name}]]</h4>
-                                <p id="price" class="card-text">$[[${product.price}]]</p>
-                                <button id="AddToCart" class="btn btn-primary" type="submit">Add to Cart</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>--> 
-
-
 
         <section th:fragment="botonesAgregar2">
             <div class="container" sec:authorize="hasRole('ROLE_ADMIN')">

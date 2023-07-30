@@ -102,13 +102,13 @@ public class ProductController {
         return "/product/Shop";
     }
     
-    @GetMapping("/News")
+    /*@GetMapping("/News")
     public String newProduct(Model model) {
         var products = productService.getProducts();
         model.addAttribute("products", products);
         model.addAttribute("totalProducts", products.size());
         return "/product/News";
-    } 
+    } */
 
     /*
     @Autowired

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org" >
+    <head>
+        <title>Video games Company</title>
+        <meta charset="UTF-8"/>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>  
+        <link rel="stylesheet" th:href="@{/styles/plantilla.css}"/>
+        <link rel="stylesheet" th:href="@{/styles/listed.css}"/>
+        <style>
+            .navbar{
+                display:flex;
+                justify-content:space-between;
+                column-gap: 10px;
+            }
+            .nav-link{
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .navbar-brand{
+                margin-right: 30px;
+            }
+            .square{
+                width: auto;
+                color: #55555530;
+            }
+            .inner-square {
+                height: 800px;
+                width: auto;
+                background-color: #ecebeb;
+                opacity: 0.75;
+            }
+            #hello{
+                color: #4A9DFF;
+            }
+            #register{
+                margin-left: 32px;
+            }
+            #logo{
+                margin-left: 20px;
+            }
+            h5{
+                margin-left: 50px;
+                color: #F8A829;
+            }
+        </style>
+    </head>
+    <body>
+        <section th:fragment="News">
+            <div th:if="${updates != null and !updates.empty}" class="container d-flex flex-wrap align-items-center">
+                <div th:each="update ${updates}" >
+                    <div th:if="${update.category == 'News'}">
+                        <div class="m-2 update">
+                            <div class="card-body">
+                                <div style="
+                                     background-color: dodgerblue;
+                                     opacity: 90%;
+                                     height: 900px"
+                                     >
+                                    <div class ="square">
+                                        <h5>
+                                            News
+                                        </h5>
+                                        <div class="inner-square"
+                                             <div style="
+                                             margin: 40px;
+                                             background-image: url('https://s3.amazonaws.com/prod-media.gameinformer.com/styles/full/s3/2018/08/16/440f596b/hollowknightbanner.jpg')">
+                                            <div style="
+                                                 overflow: auto;
+                                                 height: 800px;
+                                                 width: auto;
+                                                 background-color: #ecebeb;
+                                                 opacity: 0.9;">
+                                                <div style="margin: 30px">
+                                                    <h1 style="color:black">News</h1>
+                                                    <h2 <p style="color:dodgerblue"[[${new.Title}]]> </p> </h2>
+                                                </div>
+                                            </div>        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html> 

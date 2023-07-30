@@ -18,7 +18,7 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name="news")
+@Table(name="new")
 public class News {
     private static final long serialVersionUID = 1L;
     
