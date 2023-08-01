@@ -15,7 +15,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>  
         <link rel="stylesheet" th:href="@{styles/plantilla.css}"/>
-
+        <link rel="stylesheet" th:href="@{/styles/login.css}"/>
     </head>
     <body>
 
@@ -91,7 +91,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             </svg>
                         </li>
                         <li class="nav-item">
+                            <a th:href="@{/login}">
                             <button id="register" class="btn btn-primary" type="submit">Register | Login </button>
+                        </a>
                         </li>
 
                     </ul>

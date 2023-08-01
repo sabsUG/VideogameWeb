@@ -2,12 +2,52 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://wwww.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
-    <head th:replace="~{layout/plantilla :: head}">
+    <head>
         <title>VideogamesWeb</title>
         <meta charset="UTF-8"/>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>  
+        <link rel="stylesheet" th:href="@{styles/plantilla.css}"/>
+        <link rel="stylesheet" th:href="@{/styles/login.css}"/>
+
+    <style>
+            .navbar{
+                display:flex;
+                justify-content:space-between;
+                column-gap: 10px;
+            }
+            .nav-link{
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .navbar-brand{
+                margin-right: 30px;
+            }
+            #hello{
+                color: #4A9DFF;
+            }
+            #register{
+
+                margin-left: 32px;
+            }
+            #logo{
+                margin-left: 20px;
+
+            }
+            h3{
+                margin-top: 30px;
+                margin-left: 50px;
+                color: #F8A829;
+            }
+
+        </style>    
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
+        <!--  
         <div class="container my-5">
             <div class="row align-items-center"> 
                 <div class="col-md-3"></div>
@@ -41,6 +81,49 @@
                 </div>
             </div>           
         </div>
+
+        -->
+        <div class="wrapper bg-white">
+            <div class="h2 text-center">Login</div>
+            <div class="h4 text-muted text-center pt-2" style="color: black">Enter your login details</div>
+            <form class="pt-3" method="POST" th:action="@{/login}">
+                <div class="form-group py-2">
+                    <div class="input-field"for="username">
+                        <span class="far fa-user p-2"></span>
+                        <input type="text" placeholder="Username" name="username" class=""/>
+                    </div>
+                </div>
+                <div class="form-group py-1 pb-2">
+                    <div class="input-field" for="password">
+                        <span class="fas fa-lock p-2"></span>
+                        <input type="text" placeholder="Enter your Password" name="password" class=""/>
+                        <button class="btn bg-white text-muted">
+                            <span class="far fa-eye-slash"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="d-flex align-items-start" style="column-gap: 110px;">
+                    <div class="remember">
+                        <label class="option text-muted"> Remember me
+                            <input type="checkbox" name="radio"/>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="ml-auto">
+                        <a href="#" id="forgot">Forgot Password?</a>
+                    </div>
+                </div>
+                <div class="d-flex align-items-start" style="column-gap: 20px;">
+                    <button class="btn btn-block text-center my-3"type="submit">Log in</button>
+                     <div th:if="${param.error != null}">
+                         <p style="margin-top: 30px; color:red">[[#{error.login}]]!</p>
+                    </div>
+                </div>
+                <div class="text-center pt-3 text-muted">Not a member? <a href="#">Sign up</a></div>
+            </form>
+           
+        </div>
+
         <footer th:replace="~{layout/plantilla :: footer}"/>
     </body>
 </html>

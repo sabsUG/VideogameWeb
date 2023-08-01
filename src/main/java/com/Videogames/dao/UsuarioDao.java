@@ -8,4 +8,5 @@ public interface UsuarioDao extends JpaRepository<Usuario, String> {
     Usuario findByUsername(String username);
 
     
+    
 }
