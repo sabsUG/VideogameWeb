@@ -65,13 +65,16 @@ public class UsuarioServiceImpl implements UsuarioService{
     @Override
     @Transactional
     public void save(Usuario usuario, boolean crearRolUser) {
+        System.out.println(usuario.getUsername());
         usuario=usuarioDao.save(usuario);
+        System.out.println(usuario.getUsername());
         if (crearRolUser) {  //Si se está creando el usuario, se crea el rol por defecto "USER"
             Rol rol = new Rol();
             rol.setName("ROLE_BASIC");
             rol.setUsername(usuario.getUsername());
             rolDao.save(rol);
         }
+        System.out.println("ROLE SAVED");
     }
 
     @Override

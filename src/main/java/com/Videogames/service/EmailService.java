@@ -4,10 +4,17 @@
  */
 package com.Videogames.service;
 
+import jakarta.mail.MessagingException;
+
 /**
  *
  * @author arianasaboriom
  */
 public interface EmailService {
-    
+    public void sendHtmlEmail(
+            String recipient, 
+            String subject, 
+            String Htmlcontent) 
+            throws MessagingException;
+
 }

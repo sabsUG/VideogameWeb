@@ -1,5 +1,6 @@
 package com.Videogames.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,12 +21,11 @@ import lombok.Data;
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    
+ 
+    @Column(unique = true)
     private Long Id;    
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private String username;    
 
     @NotEmpty

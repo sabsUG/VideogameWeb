@@ -96,7 +96,8 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/usuario/nuevo","/usuario/guardar",
                         "/usuario/modificar/**","/usuario/eliminar/**",
                         "/reportes/**",
-                        "/update/News"
+                        "/update/News",
+                        "/register/**"
                         
                 ).hasRole("ADMIN")
                         

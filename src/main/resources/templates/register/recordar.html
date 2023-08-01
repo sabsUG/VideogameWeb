@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+        <title>Videogames Company</title>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>  
+        <link rel="stylesheet" th:href="@{styles/plantilla.css}"/>    
+        <style>
+            .navbar{
+                display:flex;
+                justify-content:space-between;
+                column-gap: 10px;
+            }
+            .nav-link{
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .navbar-brand{
+                margin-right: 30px;
+            }
+            #hello{
+                color: #4A9DFF;
+            }
+            #register{
+
+                margin-left: 32px;
+            }
+            #logo{
+                margin-left: 20px;
+
+            }
+            h3{
+                margin-top: 30px;
+                margin-left: 50px;
+                color: #F8A829;
+            }
+
+        </style>    
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+
+        <section th:replace="~{register/fragmentos :: recordarUsuario}"/>
+
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+    </body>
+</html>
