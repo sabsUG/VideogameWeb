@@ -22,6 +22,53 @@ body{
     column-gap: 20px;
 }
 
+
+.cardCart{
+  
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  display: flex;
+
+  width: 900px;
+  height: 400px;
+  
+}
+
+
+.cardButtons{
+  
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  display: flex;
+
+  width: 250px;
+  height: 70px;
+  
+}
+
+.cardButtonsTotal{
+  
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  display: flex;
+
+  width: 250px;
+  height: 100px;
+  
+}
+
+.card-modify-item{
+  margin-left: 8 px;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+
+  width: 500px;
+  height: 420px;
+  
+}
+
 .card{
   
   border-radius: 8px;

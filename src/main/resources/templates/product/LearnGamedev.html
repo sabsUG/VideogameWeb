@@ -54,6 +54,14 @@
         </style>
     </head>
     <body>
+        <script>
+            function addCard(formulario) {
+            var valor = formulario.elements[0].value;
+            var url = '/cart/add';
+            url = url + '/' + valor;
+            $("#resultsBlock").load(url);
+            }
+        </script>
 
         <header th:replace="~{layout/plantilla :: header}"/>
         <h3>

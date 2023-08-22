@@ -82,7 +82,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/register/**","/js/**","/webjars/**", "/styles/**", "/login", "/update/News",
                          "/product/Videogames2D", "/product/Videogames3D", "/product/AllVideogames", "/product/VideogamesVR", 
                         "/product/LearnDesign2D", "/product/LearnDesign3D", "/product/LearnCsharp", "/product/LearnGamedev", "/product/Shop",
-                        "/job/listed", "/job/Designers", "/job/Unity", "/job/FrontEnd", "/job/Ios", "/job/Android")
+                        "/job/listed", "/job/Designers", "/job/Unity", "/job/FrontEnd", "/job/Ios", "/job/Android","/cart/**","/cart/listed","/js/**","/cart/products")
                         .permitAll()
                         
                 .requestMatchers(
@@ -97,7 +97,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/usuario/modificar/**","/usuario/eliminar/**",
                         "/reportes/**",
                         "/update/News",
-                        "/register/**"
+                        "/register/**","/cart/**","/cart/listed","/js/**","/cart/products"
                         
                 ).hasRole("ADMIN")
                         
@@ -105,16 +105,16 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/product/Videogames2D", "/product/Videogames3D", "/product/AllVideogames", "/product/VideogamesVR", 
                         "/product/LearnDesign2D", "/product/LearnDesign3D", "/product/LearnCsharp", "/product/LearnGamedev", "/product/Shop",
                         "/job/listed",
-                        "/usuario/listado",
-                        "/update/News"
+                        "/usuario/listado","/cart/**",
+                        "/update/News","/cart/listed","/cart/products","/js/**"
                 ).hasAnyRole("ADMIN", "VENDEDOR")
                 .requestMatchers(
                        
                          "/product/Videogames2D", "/product/Videogames3D", "/product/AllVideogames", "/product/VideogamesVR", 
                         "/product/LearnDesign2D", "/product/LearnDesign3D", "/product/LearnCsharp", "/product/LearnGamedev", "/product/Shop",
                         "/job/listed",
-                        "/usuario/listado", 
-                        "/update/News"
+                        "/usuario/listado","/cart/**",
+                        "/update/News","/cart/listed","/js/**","/cart/products"
                 )
                 .hasRole("USER")
                 )

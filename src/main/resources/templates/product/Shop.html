@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:th="http://www.thymeleaf.org" 
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
@@ -55,7 +54,14 @@
         </style>
     </head>
     <body>
-
+        <script>
+            function addCard(formulario) {
+            var valor = formulario.elements[0].value;
+            var url = '/cart/add';
+            url = url + '/' + valor;
+            $("#resultsBlock").load(url);
+            }
+        </script>
         <header th:replace="~{layout/plantilla :: header}"/>
         <h3>
             Our Products
@@ -64,7 +70,6 @@
         <section th:replace="~{product/fragmentos :: addShop}"/>
         <header th:replace="~{product/fragmentos :: Shop}"/>
         <header th:replace="~{layout/plantilla :: footer}"/>
-
 
     </body>
 </html>
