@@ -25,7 +25,7 @@ public class UsuarioServiceImpl implements UsuarioService{
     private UsuarioDao usuarioDao;
     @Autowired
     private RolDao rolDao;
-
+    
     @Override
     @Transactional(readOnly = true)
     public List<Usuario> getUsuarios() {
@@ -76,11 +76,11 @@ public class UsuarioServiceImpl implements UsuarioService{
         }
         System.out.println("ROLE SAVED");
     }
-
+    
     @Override
     @Transactional
     public void delete(Usuario usuario) {
         usuarioDao.delete(usuario);
     }
-
+    
 }

@@ -82,7 +82,9 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/register/**","/js/**","/webjars/**", "/styles/**", "/login", "/update/News",
                          "/product/Videogames2D", "/product/Videogames3D", "/product/AllVideogames", "/product/VideogamesVR", 
                         "/product/LearnDesign2D", "/product/LearnDesign3D", "/product/LearnCsharp", "/product/LearnGamedev", "/product/Shop",
-                        "/job/listed", "/job/Designers", "/job/Unity", "/job/FrontEnd", "/job/Ios", "/job/Android","/cart/**","/cart/listed","/js/**","/cart/products")
+                        "/job/listed", "/job/Designers", "/job/Unity", "/job/FrontEnd", "/job/Ios", "/job/Android","/cart/**","/cart/listed","/js/**","/cart/products"
+                        
+                        )
                         .permitAll()
                         
                 .requestMatchers(
@@ -97,7 +99,9 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/usuario/modificar/**","/usuario/eliminar/**",
                         "/reportes/**",
                         "/update/News",
-                        "/register/**","/cart/**","/cart/listed","/js/**","/cart/products"
+                        "/register/**","/cart/**","/cart/listed","/js/**","/cart/products","/profile/Profile","/profile/ChangeEmail",
+                        "/profile/ChangePassword", "/profile/PaymentMethod", "/profile/UploadResume"
+                        
                         
                 ).hasRole("ADMIN")
                         
@@ -106,7 +110,8 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/product/LearnDesign2D", "/product/LearnDesign3D", "/product/LearnCsharp", "/product/LearnGamedev", "/product/Shop",
                         "/job/listed",
                         "/usuario/listado","/cart/**",
-                        "/update/News","/cart/listed","/cart/products","/js/**"
+                        "/update/News","/cart/listed","/cart/products","/js/**","/profile/Profile","/profile/ChangeEmail",
+                        "/profile/ChangePassword", "/profile/PaymentMethod", "/profile/UploadResume"
                 ).hasAnyRole("ADMIN", "VENDEDOR")
                 .requestMatchers(
                        
@@ -114,7 +119,8 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/product/LearnDesign2D", "/product/LearnDesign3D", "/product/LearnCsharp", "/product/LearnGamedev", "/product/Shop",
                         "/job/listed",
                         "/usuario/listado","/cart/**",
-                        "/update/News","/cart/listed","/js/**","/cart/products"
+                        "/update/News","/cart/listed","/js/**","/cart/products", "/profile/Profile","/profile/ChangeEmail",
+                        "/profile/ChangePassword", "/profile/PaymentMethod", "/profile/UploadResume"
                 )
                 .hasRole("USER")
                 )

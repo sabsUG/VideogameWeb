@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.validation.constraints.NotEmpty;
 import lombok.Data;
+
 @Entity
 
 @Data
@@ -23,7 +24,8 @@ public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
  
     @Column(unique = true)
-    private Long Id;    
+    private Long Id;
+    private String email;    
 
     @Id
     private String username;    
@@ -33,7 +35,6 @@ public class Usuario implements Serializable {
 
     private String name;
 
-    private String email;
 
     private String address;
     
@@ -41,4 +42,6 @@ public class Usuario implements Serializable {
     @OneToMany
     @JoinColumn(name="username")
     private List<Rol> roles;
+    
+    
 }

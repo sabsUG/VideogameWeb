@@ -44,3 +44,177 @@ svg{
 
     color: #4A9DFF;
 }
+body1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.Perfil-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.Perfil-div {
+    text-align: center;
+    border: 2px solid powderblue;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.Perfil-logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.Perfil-name {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.Perfil-button {
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px 0; 
+    cursor: pointer;
+    display: block;
+    width: 100%; 
+    box-sizing: border-box;
+    text-decoration: none;
+
+}
+.Fondo-gris {
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    margin: 0;
+}
+
+.Cuadro-blanco {
+    background-color: white;
+    border-radius: 10px;
+    padding: 50px;
+    text-align: center;
+    width: 70%;
+}
+
+.Back-link {
+    color: dodgerblue;
+    text-decoration: underline;
+    margin: 10px;
+    display: inline-block;
+    float: left;
+}
+
+.Titulo-centrado {
+    margin: 20px 0;
+}
+
+.Texto-centrado {
+    margin: 10px 0;
+}
+
+.Div-gris-claro {
+    background-color: lightgray;
+    border-radius: 10px;
+    padding: 70px;
+    margin-top: 20px;
+    text-align: center;
+}
+.Centro {
+    background-color: white;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 35vh;
+    margin: 0;
+    border-radius: 10px;
+    padding: 20px;
+    color: black; 
+    border: 2px solid black; 
+}
+
+.Titulo-esquina {
+    color: dodgerblue;
+    font-size: 24px;
+    margin: 10px;
+    float: left;
+}
+
+.Tarjetas {
+    color: black;
+    margin-top: 20px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 20px 0;
+    width: 50%;
+}
+
+.Linea-tarjeta {
+    text-align: center;
+    margin: 10px 0;
+    color:black;
+}
+
+.Nombre-banco {
+    font-size: 18px;
+}
+
+.Numero-tarjeta {
+    font-size: 14px;
+}
+
+.Agregar-button {
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.Done-button {
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.Titulo-dodgeblue {
+    color: dodgerblue;
+    font-size: 24px;
+    text-align: center;
+}
+
+.Campo-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.Titulo-negro-pequeño {
+    color: black;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.Campo-input {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}

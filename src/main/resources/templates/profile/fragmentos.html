@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head>
+        <title>Video games Company</title>
+        <meta charset="UTF-8"/>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>  
+
+        <link rel="stylesheet" th:href="@{/styles/plantilla.css}"/>
+        <link rel="stylesheet" th:href="@{/styles/listed.css}"/>
+
+    </head>
+    <body>
+        <section th:fragment="Profile" class="Perfil-section" style="
+                 margin-top: 100px;
+                 ">
+            <div class="Perfil-div" style="border-color: black">
+                <h1 style="margin-left: 30px;
+                    margin-right: 30px"> Your Profile</h1>
+                <!--<p class="Perfil-name">Name_LastName</p>-->
+                <p class="Perfil-name" th:text="${nombreUsuario}">Name_LastName</p>
+
+                <a class="Perfil-button" th:href="@{/profile/ChangeEmail}">Change Email</a>
+                <a class="Perfil-button" th:href="@{/profile/ChangePassword}">Change Password</a>
+                <a class="Perfil-button" th:href="@{/profile/UploadResume}">Upload Resume</a>
+                <a class="Perfil-button" th:href="@{/profile/PaymentMethod}">Payment methods</a>
+
+                <a class="Perfil-button" th:href="@{/profile/Profile}">Your Orders</a>
+            </div>
+        </section>
+        <section th:fragment="UploadResume">
+            <div class="Fondo-gris">
+                <div class="Cuadro-blanco">
+                    <a href="@{/profile/Profile}" class="Back-link">Back to Profile</a>
+                    <h1 class="Titulo-centrado">Upload Your Resume</h1>
+                    <p class="Texto-centrado">Make completing your job application easier by uploading your resume or CV.
+                        Upload either DOC, DOCX, HTML, PDF, or TXT file types (5MB max)</p>
+                    <div class="Div-gris-claro">
+                        <h2 class="Titulo-centrado">Drop Resume Here</h2>
+                        <p class="Texto-centrado" style="text-decoration: underline;">Or select file</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section th:fragment="PaymentMethod" class="Perfil-section">
+            <div class="Centro">
+                <h2 class="Titulo-esquina" style="
+                    margin-left: 150px;
+                    margin-right: 150px">Add Card</h2>
+                <div class="Tarjetas">
+                    <div class="Linea-tarjeta">
+                        <p class="Nombre-banco">BAC</p>
+                        <p class="Numero-tarjeta">1234 5678 9012 3456</p>
+                    </div>
+
+                </div>
+                <button class="Agregar-button">Add Card</button>
+                <button class="Done-button">Done</button>
+            </div>
+        </section>
+        <section th:fragment="ChangePassword" class="Perfil-section">
+            <div class="Centro" style="padding: 30px; height: 30vh">
+                <h2 class="Titulo-dodgeblue">Change Password</h2>
+                <form th:action="@{/profile/ChangePassword}" method="post">
+                    <div class="Campo-container">
+                        <p class="Titulo-negro-pequeño">Old password</p>
+                        <input type="password" name="oldPassword" class="Campo-input" required="required"/>
+                    </div>
+                    <div class="Campo-container">
+                        <p class="Titulo-negro-pequeño">New password</p>
+                        <input type="password" name="newPassword" class="Campo-input" required="required"/>
+                    </div>
+                    <div class="Campo-container">
+                        <p class="Titulo-negro-pequeño">Confirm password</p>
+                        <input type="password" name="confirmPassword" class="Campo-input" required="required"/>
+                    </div>
+                    <button type="submit" class="Perfil-button">Change Password</button>
+                </form>
+            </div>
+        </section>
+        <section th:fragment="ChangeEmail" class="Perfil-section">
+            <div class="Centro" style="padding: 25px; height: 25vh; margin-top: 40px;">
+                <h2 class="Titulo-dodgeblue">Change Email</h2>
+                <form th:action="@{/profile/ChangeEmail}" method="post">
+                    <div class="Campo-container">
+                        <p class="Titulo-negro-pequeño">Old Email</p>
+                        <input type="email" name="oldEmail" class="Campo-input" required="required"/>
+                    </div>
+                    <div class="Campo-container">
+                        <p class="Titulo-negro-pequeño">New Email</p>
+                        <input type="email" name="newEmail" class="Campo-input" required="required"/>
+                    </div>
+                    <button type="submit" class="Perfil-button">Change Email</button>
+                </form>
+            </div>
+        </section>
+
+    </body>
+</html>
