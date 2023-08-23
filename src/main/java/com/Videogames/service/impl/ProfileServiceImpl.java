@@ -16,6 +16,8 @@ import com.Videogames.service.UsuarioService;
 import com.Videogames.service.ProfileService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -72,5 +74,23 @@ public class ProfileServiceImpl implements ProfileService {
     @Override
     public Usuario actualizarUsuario(Usuario usuario) {
         return usuarioDao.save(usuario);
+    }
+    
+    @Autowired
+    private UsuarioService usuarioService;
+    @Override
+    public Usuario getUser() {
+        //Se obtiene el usuario autenticado
+        String username;
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails userDetails) {
+            username = userDetails.getUsername();
+        } else {
+            username = principal.toString();
+        }
+
+        Usuario usuario = usuarioService.getUsuarioByUsername(username);
+        return usuario;
+
     }
 }

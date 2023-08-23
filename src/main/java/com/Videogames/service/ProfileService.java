@@ -24,5 +24,5 @@ public interface ProfileService {
 
     Usuario actualizarUsuario(Usuario usuario);
 
-    
+    public Usuario getUser();
 }

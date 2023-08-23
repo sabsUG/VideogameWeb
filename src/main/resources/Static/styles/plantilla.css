@@ -218,3 +218,28 @@ body1 {
     width: 100%;
     box-sizing: border-box;
 }
+.Titulo-naranja-grande {
+    font-size: 24px;
+    color: orange;
+    margin-top: 50px;
+}
+
+.Orden-linea {
+    margin: 20px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Orden-numero {
+    color: dodgerblue;
+    font-weight: bold;
+}
+
+.Quantity {
+    color: black;
+    font-size: 14px;
+}

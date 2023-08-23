@@ -31,13 +31,13 @@
                 <a class="Perfil-button" th:href="@{/profile/UploadResume}">Upload Resume</a>
                 <a class="Perfil-button" th:href="@{/profile/PaymentMethod}">Payment methods</a>
 
-                <a class="Perfil-button" th:href="@{/profile/Profile}">Your Orders</a>
+                <a class="Perfil-button" th:href="@{/profile/YourOrders}">Your Orders</a>
             </div>
         </section>
         <section th:fragment="UploadResume">
             <div class="Fondo-gris">
                 <div class="Cuadro-blanco">
-                    <a href="@{/profile/Profile}" class="Back-link">Back to Profile</a>
+                    <a th:href="@{/profile/Profile}" class="Back-link">Back</a>
                     <h1 class="Titulo-centrado">Upload Your Resume</h1>
                     <p class="Texto-centrado">Make completing your job application easier by uploading your resume or CV.
                         Upload either DOC, DOCX, HTML, PDF, or TXT file types (5MB max)</p>
@@ -66,7 +66,7 @@
             </div>
         </section>
         <section th:fragment="ChangePassword" class="Perfil-section" style="margin: 100px;">
-            <div class="Centro" style="padding: 30px; height: 30vh">
+            <div class="Centro" style="padding: 30px; height: 45vh">
                 <h2 class="Titulo-dodgeblue">Change Password</h2>
                 <form th:action="@{/profile/ChangePassword}" method="post">
                     <div class="Campo-container">
@@ -86,27 +86,41 @@
             </div>
         </section>
         <section th:fragment="ChangeEmail" class="Perfil-section" style="margin: 100px;">
-            <div class="Centro" style="padding: 25px; height: 25vh; margin-top: 40px;">
+            <div class="Centro" style="padding: 25px; height: 50vh; margin-top: 40px;">
                 <h2 class="Titulo-dodgeblue">Change Email</h2>
-                <form th:action="@{/profile/ChangeEmail}" method="post">
+                <form method="post" th:action="@{/profile/ChangeEmailNew}" th:object="${usuario}" >
+                        <input type="hidden" name="Id" th:field="*{Id}"/> <!-- -->
+                        <input type="hidden" name="name" th:field="*{name}"/>
+                        <input type="hidden" name="address" th:field="*{address}"/>
+                        <input type="hidden" name="username" th:field="*{username}"/>
+                        <input type="hidden" name="password" th:field="*{password}"/>
                     <div class="Campo-container">
                         <p class="Titulo-negro-pequeño">Old Email </p>
-                        <span th:text="${usuario.email}" class="Campo-input"></span>
-                        <!-- Campo oculto para el correo electrónico actual -->
-                        <input type="hidden" name="oldEmail" th:value="${usuario.email}" />
+                        <span th:text="*{email}" class="Campo-input"></span>
+                        <!--<input type="hidden" name="oldEmail" th:value="*{email}" />-->
+                        
                     </div>
                     <div class="Campo-container">
                         <p class="Titulo-negro-pequeño">New Email</p>
-                        <input type="email" name="newEmail" class="Campo-input" required="required"/>
+                        <input type="email" name="email" class="Campo-input" required="required" />
                     </div>
                     <button type="submit" class="Perfil-button">Change Email</button>
                 </form>
             </div>
         </section>
 
-        <script th:if="${emailMismatch}">
-            alert('Correo no existe!');
-        </script>
 
+        <section th:fragment="YourOrders" class="Perfil-section" style="margin: 100px; text-align: center;">
+            <div style="width: 80%; height: 90vh;">
+                <h2 class="Titulo-naranja-grande">Your Orders</h2>
+
+                <div class="Orden-linea" >
+                    <p class="Orden-numero">Orden #1</p>
+                    <p class="Made-on">Made on: 2023-08-22</p>
+                    <p class="Total-value">Total value: $50.00</p>
+                    <p class="Quantity">Quantity: 3</p>
+                </div>
+            </div>
+        </section>
     </body>
 </html>

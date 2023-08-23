@@ -22,7 +22,7 @@ public class Usuario implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // O la estrategia adecuada para tu base de datos
-    private Long id;
+    private Long Id;
 
     @Column(unique = true)
     private String email;

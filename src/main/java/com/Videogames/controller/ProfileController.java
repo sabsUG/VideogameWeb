@@ -40,13 +40,13 @@ public class ProfileController {
         return "profile/Profile";
     }
 
-    @GetMapping("/ChangeEmail")
+    /*@GetMapping("/ChangeEmail")
     public String changeEmail(Model model, Principal principal) {
         String loggedInUsername = principal.getName(); // Obtiene el nombre de usuario del usuario logueado
         Usuario usuario = usuarioService.getUsuarioByUsername(loggedInUsername);
         model.addAttribute("usuario", usuario);
         return "profile/ChangeEmail";
-    }
+    }*/
 
     @GetMapping("/ChangePassword")
     public String ChangePassword(Model model) {
@@ -63,22 +63,24 @@ public class ProfileController {
         return "profile/PaymentMethod";
     }
 
-    @PostMapping("/ChangeEmail")
-    public String processChangeEmail(@ModelAttribute Usuario usuario,
-            @RequestParam("oldEmail") String oldEmail,
-            @RequestParam("newEmail") String newEmail,
-            Model model) {
-        if (usuario.getEmail() == null || !usuario.getEmail().equals(oldEmail)) {
-            model.addAttribute("emailMismatch", true);
-            return "profile/ChangeEmail";
-        }
-
-        usuario.setEmail(newEmail);
-        usuarioService.save(usuario, false);
-        return "redirect:/profile/Profile";
+    @GetMapping("/YourOrders")
+    public String YourOrders(Model model) {
+        return "profile/YourOrders";
+    } 
+    @GetMapping("/ChangeEmail")
+    public String processChangeEmail(Model model) {
+        Usuario usuario = profileService.getUser();
+        model.addAttribute("usuario", usuario);
+        return "profile/ChangeEmail"; 
+    }
+    @PostMapping("/ChangeEmailNew")
+    public String processChangeEmailNew(Usuario usuario){
+            usuarioService.save(usuario, false);
+            return "redirect:/profile/Profile";
     }
 
     @PostMapping("/ChangePassword")
+    
     public String changePassword(@RequestParam String oldPassword, @RequestParam String newPassword,
             @RequestParam String confirmPassword, Principal principal) {
         String loggedInUsername = principal.getName();
@@ -91,7 +93,6 @@ public class ProfileController {
             // Manejo de errores, redirección con mensaje, etc.
             return "redirect:/profile/ChangePassword";
         }
-
         // Actualiza la contraseña del usuario en la entidad
         usuario.setPassword(newPassword);
 
