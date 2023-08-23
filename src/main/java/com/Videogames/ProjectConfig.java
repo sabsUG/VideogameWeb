@@ -82,7 +82,9 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/register/**","/js/**","/webjars/**", "/styles/**", "/login", "/update/News",
                          "/product/Videogames2D", "/product/Videogames3D", "/product/AllVideogames", "/product/VideogamesVR", 
                         "/product/LearnDesign2D", "/product/LearnDesign3D", "/product/LearnCsharp", "/product/LearnGamedev", "/product/Shop",
-                        "/job/listed", "/job/Designers", "/job/Unity", "/job/FrontEnd", "/job/Ios", "/job/Android","/cart/**","/cart/listed","/js/**","/cart/products"
+                        "/job/listed", "/job/Designers", "/job/Unity", "/job/FrontEnd", "/job/Ios", "/job/Android","/cart/**","/cart/listed","/js/**","/cart/products",
+                        "/profile/Profile", "/profile/ChangeEmail",
+                        "/profile/ChangePassword", "/profile/PaymentMethod", "/profile/UploadResume"
                         
                         )
                         .permitAll()

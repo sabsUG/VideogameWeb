@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,24 +34,23 @@ public class ProfileController {
 
     @GetMapping("/Profile")
     public String showProfile(Model model, Principal principal) {
-        String loggedInUsername = principal.getName(); // Obtiene el nombre de usuario del usuario logueado
+        String loggedInUsername = principal.getName();
         Usuario usuario = profileService.getUsuarioByUsername(loggedInUsername);
         model.addAttribute("usuario", usuario);
-
-        String nombreUsuario = profileService.obtenerNombreUsuario(loggedInUsername);
-        model.addAttribute("nombreUsuario", nombreUsuario);
-
-        return "profile/Profile"; 
+        return "profile/Profile";
     }
 
     @GetMapping("/ChangeEmail")
-    public String ChangeEmail(Model model) {
-        return "profile/ChangeEmail"; 
+    public String changeEmail(Model model, Principal principal) {
+        String loggedInUsername = principal.getName(); // Obtiene el nombre de usuario del usuario logueado
+        Usuario usuario = usuarioService.getUsuarioByUsername(loggedInUsername);
+        model.addAttribute("usuario", usuario);
+        return "profile/ChangeEmail";
     }
 
     @GetMapping("/ChangePassword")
     public String ChangePassword(Model model) {
-        return "profile/ChangePassword"; 
+        return "profile/ChangePassword";
     }
 
     @GetMapping("/UploadResume")
@@ -64,32 +64,40 @@ public class ProfileController {
     }
 
     @PostMapping("/ChangeEmail")
-    public String ChangeEmail(@RequestParam String oldEmail, @RequestParam String newEmail, Principal principal) {
-        String loggedInUsername = principal.getName();
-        profileService.cambiarEmail(loggedInUsername, newEmail);
+    public String processChangeEmail(@ModelAttribute Usuario usuario,
+            @RequestParam("oldEmail") String oldEmail,
+            @RequestParam("newEmail") String newEmail,
+            Model model) {
+        if (usuario.getEmail() == null || !usuario.getEmail().equals(oldEmail)) {
+            model.addAttribute("emailMismatch", true);
+            return "profile/ChangeEmail";
+        }
+
+        usuario.setEmail(newEmail);
+        usuarioService.save(usuario, false);
         return "redirect:/profile/Profile";
     }
 
     @PostMapping("/ChangePassword")
-public String changePassword(@RequestParam String oldPassword, @RequestParam String newPassword, 
-                             @RequestParam String confirmPassword, Principal principal) {
-    String loggedInUsername = principal.getName();
-    
-    // Obtén el usuario de la base de datos
-    Usuario usuario = profileService.getUsuarioByUsername(loggedInUsername);
-    
-    // Implementa la lógica para validar la contraseña actual y la confirmación
-    if (!usuario.getPassword().equals(oldPassword) || !newPassword.equals(confirmPassword)) {
-        // Manejo de errores, redirección con mensaje, etc.
-        return "redirect:/profile/ChangePassword";
+    public String changePassword(@RequestParam String oldPassword, @RequestParam String newPassword,
+            @RequestParam String confirmPassword, Principal principal) {
+        String loggedInUsername = principal.getName();
+
+        // Obtén el usuario de la base de datos
+        Usuario usuario = profileService.getUsuarioByUsername(loggedInUsername);
+
+        // Implementa la lógica para validar la contraseña actual y la confirmación
+        if (!usuario.getPassword().equals(oldPassword) || !newPassword.equals(confirmPassword)) {
+            // Manejo de errores, redirección con mensaje, etc.
+            return "redirect:/profile/ChangePassword";
+        }
+
+        // Actualiza la contraseña del usuario en la entidad
+        usuario.setPassword(newPassword);
+
+        // Actualiza el usuario en la base de datos
+        profileService.actualizarUsuario(usuario);
+
+        return "redirect:/profile/Profile"; // Redirige después de cambiar la contraseña
     }
-    
-    // Actualiza la contraseña del usuario en la entidad
-    usuario.setPassword(newPassword);
-    
-    // Actualiza el usuario en la base de datos
-    profileService.actualizarUsuario(usuario);
-    
-    return "redirect:/profile/Profile"; // Redirige después de cambiar la contraseña
-}
 }
