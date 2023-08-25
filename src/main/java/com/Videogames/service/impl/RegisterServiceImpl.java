@@ -69,7 +69,7 @@ public class RegisterServiceImpl implements RegisterService{
                             usuario.getIdUsuario()));
         }
         */
-        usuarioService.save(usuario, true);
+        usuarioService.save(usuario, false);
     }
 
     @Override

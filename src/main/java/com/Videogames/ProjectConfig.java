@@ -82,11 +82,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/register/**","/js/**","/webjars/**", "/styles/**", "/login", "/update/News",
                          "/product/Videogames2D", "/product/Videogames3D", "/product/AllVideogames", "/product/VideogamesVR", 
                         "/product/LearnDesign2D", "/product/LearnDesign3D", "/product/LearnCsharp", "/product/LearnGamedev", "/product/Shop",
-                        "/job/listed", "/job/Designers", "/job/Unity", "/job/FrontEnd", "/job/Ios", "/job/Android","/cart/**","/cart/listed","/js/**","/cart/products",
-                        "/profile/Profile", "/profile/ChangeEmail", "/profile/ChangeEmailNew",
-                        "/profile/ChangePassword", "/profile/PaymentMethod", "/profile/UploadResume", "/profile/YourOrders"
-                        
-                        ) 
+                        "/job/listed", "/job/Designers", "/job/Unity", "/job/FrontEnd", "/job/Ios", "/job/Android","/cart/**","/cart/listed","/js/**","/cart/products","/cart/order")
                         .permitAll()
                         
                 .requestMatchers(
@@ -101,9 +97,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/usuario/modificar/**","/usuario/eliminar/**",
                         "/reportes/**",
                         "/update/News",
-                        "/register/**","/cart/**","/cart/listed","/js/**","/cart/products","/profile/Profile","/profile/ChangeEmail", "/profile/ChangeEmailNew",
-                        "/profile/ChangePassword", "/profile/PaymentMethod", "/profile/UploadResume", "/profile/YourOrders"
-                        
+                        "/register/**","/cart/**","/cart/listed","/js/**","/cart/products","/cart/order","/profile/**"
                         
                 ).hasRole("ADMIN")
                         
@@ -112,8 +106,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/product/LearnDesign2D", "/product/LearnDesign3D", "/product/LearnCsharp", "/product/LearnGamedev", "/product/Shop",
                         "/job/listed",
                         "/usuario/listado","/cart/**",
-                        "/update/News","/cart/listed","/cart/products","/js/**","/profile/Profile","/profile/ChangeEmail", "/profile/ChangeEmailNew",
-                        "/profile/ChangePassword", "/profile/PaymentMethod", "/profile/UploadResume", "/profile/YourOrders"
+                        "/update/News","/cart/listed","/cart/products","/js/**","/cart/order","/profile/**"
                 ).hasAnyRole("ADMIN", "VENDEDOR")
                 .requestMatchers(
                        
@@ -121,8 +114,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/product/LearnDesign2D", "/product/LearnDesign3D", "/product/LearnCsharp", "/product/LearnGamedev", "/product/Shop",
                         "/job/listed",
                         "/usuario/listado","/cart/**",
-                        "/update/News","/cart/listed","/js/**","/cart/products", "/profile/Profile","/profile/ChangeEmail", "/profile/ChangeEmailNew",
-                        "/profile/ChangePassword", "/profile/PaymentMethod", "/profile/UploadResume", "/profile/YourOrders"
+                        "/update/News","/cart/listed","/js/**","/cart/products","/cart/order","/profile/**"
                 )
                 .hasRole("USER")
                 )

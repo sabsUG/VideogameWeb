@@ -1,6 +1,7 @@
 package com.Videogames.service;
 
 import com.Videogames.domain.Item;
+import com.Videogames.domain.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,5 +24,7 @@ public interface ItemService {
     
     public void actualiza(Item item);
     
-    public void facturar();
+    public Usuario getUser();
+    
+    public void facturar(String payment_methods);
 }

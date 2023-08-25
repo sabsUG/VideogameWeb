@@ -39,18 +39,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             <div class="card-body">
                                 <h4>[[${product.product_name}]]</h4>
                                 <p class="card-text">[[${product.description}]]</p>
+                                
+                            <div style="display: flex" > 
                                 <form>
                                     <input type="hidden" name="texto" th:value="${product.idProduct}"/>
                                     <button style="background-color: #F8A829" class="btn btn-warning text-white" id="addCar" 
                                             name="addCar" onclick="addCard(this.form)" 
                                             type="button">Add to Cart</button>
                                 </form>
-                                <a th:href="@{/product/deleteVideogame/}+${product.idProduct}"
+                                <a  style="margin-left: 8px" th:href="@{/product/deleteVideogame/}+${product.idProduct}"
                                    class="btn btn-danger" sec:authorize="hasRole('ROLE_ADMIN')">
                                     <i class="fas fa-trash"></i></a>
-                                <a th:href="@{/product/editVideogame/}+${product.idProduct}"
+                                <a style="margin-left: 8px" th:href="@{/product/editVideogame/}+${product.idProduct}"
                                    class="btn btn-success" sec:authorize="hasRole('ROLE_ADMIN')">
                                     <i class="fas fa-pencil"></i></a>
+                            </div>
                             </div>
 
                         </div>
@@ -138,18 +141,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             <div class="card-body">
                                 <h4>[[${product.product_name}]]</h4>
                                 <p id="price" class="card-text">$[[${product.price}]]</p>
+                                
+                            <div style="display: flex" > 
                                 <form>
                                     <input type="hidden" name="texto" th:value="${product.idProduct}"/>
                                     <button style="background-color: #F8A829" class="btn btn-warning text-white" id="addCar" 
                                             name="addCar" onclick="addCard(this.form)" 
                                             type="button">Add to Cart</button>
                                 </form> 
-                                <a th:href="@{/product/deleteCourse2D/}+${product.idProduct}"
+                                <a style="margin-left: 8px" th:href="@{/product/deleteCourse2D/}+${product.idProduct}"
                                    class="btn btn-danger" sec:authorize="hasRole('ROLE_ADMIN')">
                                     <i class="fas fa-trash"></i></a>
-                                <a th:href="@{/product/edit2dCourse/}+${product.idProduct}"
+                                <a style="margin-left: 8px" th:href="@{/product/edit2dCourse/}+${product.idProduct}"
                                    class="btn btn-success" sec:authorize="hasRole('ROLE_ADMIN')">
                                     <i class="fas fa-pencil"></i></a>
+                            </div>
                             </div>
 
                         </div>
@@ -167,18 +173,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             <div class="card-body">
                                 <h4>[[${product.product_name}]]</h4>
                                 <p id="price" class="card-text">$[[${product.price}]]</p>
+                                
+                            <div style="display: flex" > 
                                 <form>
                                     <input type="hidden" name="texto" th:value="${product.idProduct}"/>
                                     <button style="background-color: #F8A829" class="btn btn-warning text-white" id="addCar" 
                                             name="addCar" onclick="addCard(this.form)" 
                                             type="button">Add to Cart</button>
                                 </form> 
-                                <a th:href="@{/product/deleteCourse3D/}+${product.idProduct}"
+                                <a style="margin-left: 8px" th:href="@{/product/deleteCourse3D/}+${product.idProduct}"
                                    class="btn btn-danger" sec:authorize="hasRole('ROLE_ADMIN')">
                                     <i class="fas fa-trash"></i></a>
-                                <a th:href="@{/product/edit3dCourse/}+${product.idProduct}"
+                                <a style="margin-left: 8px" th:href="@{/product/edit3dCourse/}+${product.idProduct}"
                                    class="btn btn-success" sec:authorize="hasRole('ROLE_ADMIN')">
                                     <i class="fas fa-pencil"></i></a>
+                            </div>
                             </div>
 
                         </div>
@@ -196,18 +205,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             <div class="card-body">
                                 <h4>[[${product.product_name}]]</h4>
                                 <p id="price" class="card-text">$[[${product.price}]]</p>
+                                
+                            <div style="display: flex" > 
                                 <form>
                                     <input type="hidden" name="texto" th:value="${product.idProduct}"/>
                                     <button style="background-color: #F8A829" class="btn btn-warning text-white" id="addCar" 
                                             name="addCar" onclick="addCard(this.form)" 
                                             type="button">Add to Cart</button>
                                 </form>         
-                                <a th:href="@{/product/deleteCourseC/}+${product.idProduct}"
+                                <a style="margin-left: 8px" th:href="@{/product/deleteCourseC/}+${product.idProduct}"
                                    class="btn btn-danger" sec:authorize="hasRole('ROLE_ADMIN')">
                                     <i class="fas fa-trash"></i></a>
-                                <a th:href="@{/product/editcCourse/}+${product.idProduct}"
+                                <a style="margin-left: 8px" th:href="@{/product/editcCourse/}+${product.idProduct}"
                                    class="btn btn-success" sec:authorize="hasRole('ROLE_ADMIN')">
                                     <i class="fas fa-pencil"></i></a>
+                            </div>
                             </div>
 
                         </div>
@@ -225,18 +237,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             <div class="card-body">
                                 <h4>[[${product.product_name}]]</h4>
                                 <p id="price" class="card-text">$[[${product.price}]]</p>
+                                
+                            <div style="display: flex" > 
                                 <form>
                                     <input type="hidden" name="texto" th:value="${product.idProduct}"/>
                                     <button style="background-color: #F8A829" class="btn btn-warning text-white" id="addCar" 
                                             name="addCar" onclick="addCard(this.form)" 
                                             type="button">Add to Cart</button>
                                 </form> 
-                                <a th:href="@{/product/deleteCourseGame/}+${product.idProduct}"
+                                <a style="margin-left: 8px" th:href="@{/product/deleteCourseGame/}+${product.idProduct}"
                                    class="btn btn-danger" sec:authorize="hasRole('ROLE_ADMIN')">
                                     <i class="fas fa-trash"></i></a>
-                                <a th:href="@{/product/editgameCourse/}+${product.idProduct}"
+                                <a style="margin-left: 8px" th:href="@{/product/editgameCourse/}+${product.idProduct}"
                                    class="btn btn-success" sec:authorize="hasRole('ROLE_ADMIN')">
                                     <i class="fas fa-pencil"></i></a>
+                            </div>
                             </div>
 
                         </div>
@@ -255,6 +270,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             <div class="card-body">
                                 <h4>[[${product.product_name}]]</h4>
                                 <p id="price" class="card-text">$[[${product.price}]]</p>
+                                
+                            <div style="display: flex" > 
                                 <form>
                                     <input type="hidden" name="texto" th:value="${product.idProduct}"/>
                                     <button style="background-color: #F8A829" class="btn btn-warning text-white" id="addCar" 
@@ -262,12 +279,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                             type="button">Add to Cart</button>
                                 </form>         
 
-                                <a th:href="@{/product/deleteShop/}+${product.idProduct}"
+                                <a style="margin-left: 8px" th:href="@{/product/deleteShop/}+${product.idProduct}"
                                    class="btn btn-danger" sec:authorize="hasRole('ROLE_ADMIN')">
                                     <i class="fas fa-trash"></i></a>
-                                <a th:href="@{/product/editShop/}+${product.idProduct}"
+                                <a style="margin-left: 8px" th:href="@{/product/editShop/}+${product.idProduct}"
                                    class="btn btn-success" sec:authorize="hasRole('ROLE_ADMIN')">
                                     <i class="fas fa-pencil"></i></a>
+                            </div>
                             </div>
                         </div>
                     </div>

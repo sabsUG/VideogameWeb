@@ -12,31 +12,33 @@ import java.io.Serializable;
 import java.util.List;
 import javax.validation.constraints.NotEmpty;
 import lombok.Data;
-
 @Entity
+
 @Data
-@Table(name = "user")
+
+@Table(name="user")
+
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
+ 
+    @Column(unique = true)
+    private Long Id;    
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // O la estrategia adecuada para tu base de datos
-    private Long Id;
-
-    @Column(unique = true)
-    private String email;
+    private String username;    
 
     @NotEmpty
-    private String username;
-
     private String password;
 
     private String name;
 
+    private String email;
+
     private String address;
+    
 
     @OneToMany
-    @JoinColumn(name = "username")
+    @JoinColumn(name="username")
     private List<Rol> roles;
 }

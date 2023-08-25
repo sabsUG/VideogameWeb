@@ -34,6 +34,18 @@ body{
   
 }
 
+.cardOrder{
+  margin-left: 8 px;
+  margin-right: 8 px;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+
+  width: 480px;
+  height: 350px;
+  
+}
+
 
 .cardButtons{
   
@@ -119,3 +131,27 @@ body{
   clear: both;
 }
 
+/* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: white; /* Red */
+  color: black;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: black;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: gray;
+}

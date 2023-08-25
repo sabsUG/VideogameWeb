@@ -2,13 +2,13 @@ package com.Videogames.domain;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.Calendar;
+import java.sql.Date;
+import java.time.LocalDateTime;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name="order")
+@Table(name="orders")
 public class Order implements Serializable {    
     private static final long serialVersionUID = 1L;
     
@@ -25,10 +25,14 @@ public class Order implements Serializable {
     public Order() {
     }
 
-    public Order(String username) {
+    public Order(Date date_ordered, String payment_method_used,  int product_quantity, double total_paid, String username) {
         this.username = username;
-        this.date_ordered = Calendar.getInstance().getTime();
+        this.date_ordered = date_ordered;
+        this.total_paid = total_paid;
+        this.product_quantity = product_quantity;
+        this.payment_method_used = payment_method_used;
     }
-
+    
+    
     
 }

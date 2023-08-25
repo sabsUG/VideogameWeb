@@ -10,12 +10,15 @@ import com.Videogames.domain.Product;
 import com.Videogames.domain.Usuario;
 import com.Videogames.service.ItemService;
 import com.Videogames.service.UsuarioService;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ItemServiceImpl implements ItemService {
@@ -98,7 +101,24 @@ public class ItemServiceImpl implements ItemService {
     private ProductDao productoDao;
 
     @Override
-    public void facturar() {
+    public Usuario getUser() {
+        //Se obtiene el usuario autenticado
+        String username;
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails userDetails) {
+            username = userDetails.getUsername();
+        } else {
+            username = principal.toString();
+        }
+        
+        Usuario usuario = usuarioService.getUsuarioByUsername(username);
+        return usuario;
+    }
+    
+    
+    @Override
+    @Transactional
+    public void facturar(String payment_methods) {
         System.out.println("Facturando");
 
         //Se obtiene el usuario autenticado
@@ -116,25 +136,31 @@ public class ItemServiceImpl implements ItemService {
 
         Usuario usuario = usuarioService.getUsuarioByUsername(username);
 
-        if (usuario == null) {
-            return;
-        }
-
-        Order order = new Order(usuario.getUsername());
+        System.out.println(usuario.getUsername());
+        
+        java.util.Date utilDate = new java.util.Date();
+        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+        System.out.println(payment_methods);
+        
+        Order order = new Order(sqlDate,payment_methods,0,0,username);
         order = orderDao.save(order);
 
+        
         double total = 0;
+        int productsTotal = 0;
         for (Item i : listaItems) {
-            System.out.println("Product: " + i.getDescription()
+            System.out.println("Product: " + i.getProduct_name()
                     + " Quantity: " + i.getCantidad()
                     + " Total: " + i.getPrice() * i.getCantidad());
             Bought_product bought_product = new Bought_product(order.getIdOrder(), i.getIdProduct(), i.getCantidad());
             bought_productDao.save(bought_product);
-            Product producto = productoDao.getReferenceById(i.getIdProduct());
-            productoDao.save(producto);
+            //Product producto = productoDao.getReferenceById(i.getIdProduct());
+            //productoDao.save(producto);
             total += i.getPrice() * i.getCantidad();
+            productsTotal += i.getCantidad();
         }
         order.setTotal_paid(total);
+        order.setProduct_quantity(productsTotal);
         orderDao.save(order);
         listaItems.clear();
     }

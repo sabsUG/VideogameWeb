@@ -34,52 +34,61 @@
             }
             #logo{
                 margin-left: 20px;
-                
+
             }
         </style>
     </head>
     <body>
-        <header th:replace="~{layout/plantilla :: header}"/>
 
+        <script>
+        function myFunction() {
+          alert("Your purchase was successful!");
+        }
+        </script>
+        <header th:replace="~{layout/plantilla :: header}"/>
         <div class="container">
             <div class="row row-cols-6" >
                 <a th:href="@{/cart/listed}" class="btn btn-primary">
-                    <i class='fas fa-reply'></i>Return</a>
+                    <i class='fas fa-reply'></i> Return</a>
             </div>
-            <div class="card-header">
-                <h4>Products</h4>
+            <div class="card-header" style="margin-top: 20px">
+                <h4>Buy Now</h4>
             </div>
             <div class="row row-cols-2">
-                <div class="card-modify-item">
+                <div class="cardOrder">
                     <div style=" margin-left: 8px">
                         <div class="card-body">
                             <form method="POST"
-                                  th:action="@{/product/saveVideogame}" 
-                                  th:object="${product}"
+                                  th:action="@{/cart/facturar}" 
                                   class="was-validated"                          
                                   enctype="multipart/form-data">
-                                <input type="hidden" name="idProduct" th:field="*{idProduct}"/>
-                                <section th:replace="~{product/fragmentos :: botonesEditar}"/>
+                                <!--<input type="hidden" name="idProduct" th:field="*{idProduct}"/>-->
                                 <div id=details>
                                     <div class="container">
                                         <div class="row">
                                             <div class="col">
                                                 <div class="cardEdit">
                                                     <div class="card-header">
-                                                        <h4>[[#{accion.actualizar}]]</h4>
+                                                        <h4>Payment Information</h4>
                                                     </div>
-                                                    <div class="card-body">
+                                                    <div class="card-body" style="margin-top: 15px">
                                                         <div class="mb-3">
-                                                            <label for="product_name">Total: [[${cartTotal}]]</label>
+                                                            <label for="username">User registered: [[${usuarioLogged}]]</label>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="carTotal">Total: [[${cartTotal}]] USD</label>
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="payment_method">Select your payment method...</label>
-                                                            <select th:field="*{payment_method.idPayment_method}"
+                                                            <select name="payment_methods"
                                                                     class="form-select" 
-                                                                    aria-label="Default select example">
-                                                                <option th:each="p : ${payment_method}" th:value="${p.idPayment_method}" th:text="${p.payment_method}">
+                                                                    aria-label="Default select example" style="width: 280px; margin-top: 8px">
+                                                                <option th:each="p : ${payment_method}" th:value="${p.alias_card}" th:if="${p.username} == ${usuarioLogged}" th:text="${p.alias_card}" >
                                                                 </option>
                                                             </select>
+                                                        </div>
+                                                        <div class="mb-3" style="width: 280px; margin-top: 8px">
+                                                            <button class="btn btn-primary" type="submit" onclick="myFunction()">Place Order $[[${cartTotal}]]</button>
                                                         </div>
                                                     </div>
                                                 </div>

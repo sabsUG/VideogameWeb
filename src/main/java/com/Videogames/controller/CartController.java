@@ -1,9 +1,13 @@
 package com.Videogames.controller;
 
 import com.Videogames.domain.Item;
+import com.Videogames.domain.Payment_method;
 import com.Videogames.domain.Product;
+import com.Videogames.domain.Usuario;
 import com.Videogames.service.ItemService;
+import com.Videogames.service.Payment_methodService;
 import com.Videogames.service.ProductService;
+import com.Videogames.service.UsuarioService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -21,6 +26,8 @@ public class CartController {
     private ItemService itemService;
     @Autowired
     private ProductService productService;
+    @Autowired
+    private Payment_methodService payment_methodService;
     
     @GetMapping("/products") 
     public String begin(Model model) {
@@ -87,17 +94,30 @@ public class CartController {
         return "redirect:/cart/listed";
     }
     
-    //Para facturar los productos del carrito... no implementado...
-    @GetMapping("/order/")
-    public String facturarCart(Model model) {
+    @GetMapping("/order")
+    public String showCart(Model model) {
         var items = itemService.gets();
-        model.addAttribute("items", items);
+        var payment_methods = payment_methodService.getPayment_methods();
         var cartTotalSell = 0;
+        
+        Usuario user2 = itemService.getUser();
+        String username = user2.getUsername();
         for (Item i : items) {
             cartTotalSell += (i.getCantidad() * i.getPrice());
         }
+        model.addAttribute("payment_method", payment_methods);
         model.addAttribute("cartTotal", 
                 cartTotalSell);
+        model.addAttribute("usuarioLogged", 
+                username);
         return "/cart/order";
     }
+    
+    //Para facturar los productos del carrito... 
+    @PostMapping("/facturar")
+    public String facturarCarrito(@RequestParam String payment_methods) {
+        itemService.facturar(payment_methods);
+        return "redirect:/";
+    }
+    
 }

@@ -14,10 +14,36 @@
         <link rel="stylesheet" th:href="@{/styles/plantilla.css}"/>
         <link rel="stylesheet" th:href="@{/styles/listed.css}"/>
         
+        
+        <style>
+            .navbar{
+                display:flex;
+                justify-content:space-between;
+                column-gap: 10px;
+            }
+            .nav-link{
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .navbar-brand{
+                 margin-right: 30px;
+            }
+            #hello{
+                color: #4A9DFF;
+            }
+            #register{
+                
+                margin-left: 32px;
+            }
+            #logo{
+                margin-left: 20px;
+
+            }
+        </style>
     </head>
     <body>
         <header th:replace="~{layout/plantilla :: header}"/>
-        <header th:replace="~{profile/fragmentos :: PaymentMethod}"/>
+        <header th:replace="~{profile/fragmentos :: PaymentMethodNew}"/>
         <header th:replace="~{layout/plantilla :: footer}"/>
 
     </body>

@@ -6,6 +6,10 @@ package com.Videogames.controller;
 
 import com.Videogames.domain.Usuario;
 import com.Videogames.service.FirebaseStorageService;
+import com.Videogames.service.ItemService;
+import com.Videogames.service.OrderService;
+import com.Videogames.service.Payment_methodService;
+import com.Videogames.service.ProductService;
 import com.Videogames.service.ProfileService;
 import com.Videogames.service.UsuarioService;
 import java.security.Principal;
@@ -25,7 +29,14 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/profile")
 
 public class ProfileController {
+    @Autowired
+    private ItemService itemService;
+    @Autowired
+    private Payment_methodService payment_methodService;
 
+
+    @Autowired
+    private OrderService orderService;
     @Autowired
     private ProfileService profileService;
 
@@ -60,11 +71,21 @@ public class ProfileController {
 
     @GetMapping("/PaymentMethod")
     public String PaymentMethod(Model model) {
+        Usuario user2 = itemService.getUser();
+        String username = user2.getUsername();
+        var payment_methods = payment_methodService.getPayment_methods();
+        model.addAttribute("usuario", username);
+        model.addAttribute("payment_methods", payment_methods);
         return "profile/PaymentMethod";
     }
 
     @GetMapping("/YourOrders")
     public String YourOrders(Model model) {
+        Usuario user2 = itemService.getUser();
+        String username = user2.getUsername();
+        var orders = orderService.getOrders();
+        model.addAttribute("usuario", username);
+        model.addAttribute("orders", orders);
         return "profile/YourOrders";
     } 
     @GetMapping("/ChangeEmail")

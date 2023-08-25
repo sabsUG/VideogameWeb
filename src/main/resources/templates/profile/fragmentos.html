@@ -65,6 +65,7 @@
                 <button class="Done-button">Done</button>
             </div>
         </section>
+        
         <section th:fragment="ChangePassword" class="Perfil-section" style="margin: 100px;">
             <div class="Centro" style="padding: 30px; height: 45vh">
                 <h2 class="Titulo-dodgeblue">Change Password</h2>
@@ -85,6 +86,7 @@
                 </form>
             </div>
         </section>
+        
         <section th:fragment="ChangeEmail" class="Perfil-section" style="margin: 100px;">
             <div class="Centro" style="padding: 25px; height: 50vh; margin-top: 40px;">
                 <h2 class="Titulo-dodgeblue">Change Email</h2>
@@ -122,5 +124,48 @@
                 </div>
             </div>
         </section>
+
+        <section th:fragment="OrdersList"  class="Perfil-section" style="margin: 100px; text-align: center;">
+            <div style="width: 80%; height: 80vh;">
+             <h2 class="Titulo-naranja-grande">Your Orders</h2>
+            <div th:if="${orders != null and !orders.empty}" >
+                <div th:each="order : ${orders}" >
+                    <div th:if="${order.username} == ${usuario}" >
+                        <div class="Orden-linea" >
+                            <p class="Orden-numero">[[${order.idOrder}]]</p>
+                            <p class="Made-on">Made on: [[${order.date_ordered}]]</p>
+                            <p class="Total-value">Total: $[[${order.total_paid}]]</p>
+                            <p class="Quantity">Quantity: [[${order.product_quantity}]]</p>
+                            <p class="Quantity">Payment method: [[${order.payment_method_used}]]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <section th:fragment="PaymentMethodNew" class="Perfil-section" style="margin: 100px;">
+            <div class="Centro">
+                <h2 class="Titulo-esquina" style="
+                    margin-left: 150px;
+                    margin-right: 150px">Payment Methods</h2>
+                <div th:if="${payment_methods != null and !payment_methods.empty}" >
+                    <div th:each="pm : ${payment_methods}" >
+                        <div th:if="${pm.username} == ${usuario}" >
+                            <div class="Tarjetas">
+                                <div class="Linea-tarjeta">
+                                    <p class="Nombre-banco">[[${pm.alias_card}]]</p>
+                                    <p class="Numero-tarjeta">[[${pm.card_number}]]</p>
+                                    <p class="Numero-tarjeta">[[${pm.name_on_card}]]</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
     </body>
 </html>

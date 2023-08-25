@@ -123,15 +123,15 @@
                             <div class="card-body" >
                                 <h3 style="margin-top: 10px">Total</h3>
                                 <h4 class="fs-4 text-white">
-                                    [[${cartTotal}]]
+                                    $[[${cartTotal}]]
                                 </h4>
                             </div>
                         </div>
-                        <div class="cardButtons text-center bg-success text-white mb-3 btn btn-success" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_BASIC')">
+                        <div class="cardButtons text-center bg-success text-white mb-3 btn btn-success" th:unless="${items== null or items.empty}" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_BASIC')">
                             <div class="card-body"  style="margin-top: 10px" >
                                 <a th:href="@{/cart/order}"
                                    class="btn text-white">
-                                    <i class='fas fa-fordward'></i> Buy Now
+                                    <i class='fas fa-fordward'></i> Proceed to Checkout
                                 </a>
                             </div>
                         </div> 
